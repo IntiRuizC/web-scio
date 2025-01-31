@@ -1,0 +1,290 @@
+.inicio {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.in-text {
+    font-size: 3vh;
+    position: absolute;
+    width: 70vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 310;
+    mix-blend-mode: difference;
+}
+
+.background-white {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%; 
+    height: 100%;
+    background: white;
+    z-index: 300;
+}
+
+.barras {
+    width: 50vw;
+    height: 32vh;
+    margin-top: 37vh;
+    position: relative;
+}
+
+.barra {
+    width: 5px;
+    height: 12px;
+    background-color: black;
+    position: absolute;
+    width: 8vw;
+    border-radius: 15px;
+}
+
+.barra.barra-mostaza1 {
+    background-color: hsla(32, 88%, 58%, 0.93);
+    top: 79%;
+    left: 0%;
+    height: 7vh;
+    z-index: 1000;
+}
+
+.barra.barra-morada1 {
+    background-color: hsla(316, 60%, 34%, 0.77);
+    top: 60%;
+    left: 9%;
+    height: 13vh;
+}
+
+.barra.barra-verde1 {
+    background-color: hsla(187, 95%, 25%, 0.43);
+    top: 85%;
+    left: 19%;
+    height: 5vh;
+}
+
+.barra.barra-verde2 {
+    background-color: hsla(187, 95%, 25%, 0.92);
+    top: 75%;
+    left: 30%;
+    height: 8vh;
+}
+
+.barra.barra-naranja1 {
+    background-color: hsla(13, 81%, 45%, 0.55);
+    top: 69%;
+    left: 41%;
+    height: 10vh;
+    z-index: 1100;
+}
+
+.barra.barra-mostaza2 {
+    background-color: hsla(32, 88%, 58%, 0.94);
+    top: 58%;
+    left: 41%;
+    height: 8vh;
+    z-index: 1080;
+}
+
+.barra.barra-naranja2 {
+    background-color: hsla(13, 81%, 45%, 0.88);
+    top: 83%;
+    left: 50%;
+    width: 14vw;
+    height: 5.5vh;
+    z-index: 1100;
+}
+
+.barra.barra-verde3 {
+    background-color: hsla(187, 95%, 25%, 0.44);
+    top: 64%;
+    left: 51%;
+    height: 7vh;
+}
+
+.barra.barra-morada2 {
+    background-color: hsla(316, 60%, 34%, 0.48);
+    top: 70%;
+    left: 62%;
+    height: 5vh;
+    z-index: 1105;
+}
+
+.barra.barra-mostaza3 {
+    background-color: hsl(32, 88%, 58%, 0.98);
+    top: 75%;
+    left: 72%;
+    height: 8vh;
+    z-index: 1095;
+}
+
+.barra.barra-verde4 {
+    background-color:  hsl(187, 95%, 25%);
+    top: 25%;
+    left: 70%;
+    height: 20vh;
+}
+
+.barra.barra-morada3 {
+    background-color: hsla(316, 60%, 34%, 0.28);
+    top: 63%;
+    left: 82%;
+    height: 12vh;
+    border-radius: 15px;
+}
+
+.barra.barra-verde5 {
+    background-color: hsl(187, 95%, 25%, 0.44);
+    top: 41%;
+    left: 78%;
+    height: 12vh;
+}
+
+
+
+@media (min-width: 1024px) {
+
+    .in-text {
+        font-size: 5.5vh;
+    }
+
+    .barras {
+        transform: translate(38vh, 2vw);
+        height: 50vh;
+        width: 30vw;
+    }
+
+    .barra {
+        width: 4.1vw;
+        border-radius: 21px;
+    }
+
+    .barra.barra-mostaza1 {
+        top: 67%;
+        left: 0%;
+        height: 16.3vh;
+    }
+
+    .barra.barra-morada1 {
+        top: 40.5%;
+        left: 9%;
+        height: 29.5vh;
+        width: 4.2vw;
+    }
+
+    .barra.barra-verde1 {
+        top: 75%;
+        height: 12.5vh;
+        width: 4.6vw;
+    }
+
+    .barra.barra-verde2 {
+        top: 56%;
+        left: 30%;
+        height: 21.9vh;
+        width: 4.5vw;
+    }
+
+    .barra.barra-naranja1 {
+        top: 49%;
+        left: 41%;
+        height: 25.5vh;
+        width: 5.1vw;
+    }
+
+    .barra.barra-mostaza2 {
+        top: 25%;
+        left: 41%;
+        height: 19vh;
+        width: 5.1vw;
+    }
+
+    .barra.barra-naranja2 {
+        top: 72.5%;
+        left: 52%;
+        width: 8.7vw;
+        height: 13.6vh;
+    }
+
+    .barra.barra-verde3 {
+        top: 43%;
+        left: 51%;
+        height: 16.8vh;
+        width: 5vw;;
+    }
+
+    .barra.barra-morada2 {
+        top: 55%;
+        left: 62%;
+        height: 11.5vh;
+        width: 5vw;
+    }
+
+    .barra.barra-mostaza3 {
+        top: 66%;
+        left: 75%;
+        height: 16.7vh;
+        width: 4.8vw;
+    }
+
+    .barra.barra-verde4 {
+        top: -20%;
+        left: 70%;
+        width: 5vw;
+        height: 49vh;
+    }
+
+    .barra.barra-morada3 {
+        top: 34%;
+        left: 83%;
+        height: 32.7vh;
+        width: 5vw;
+    }
+
+    .barra.barra-verde5 {
+        top: 3%;
+        left: 80%;
+        height: 32vh;
+        width: 5vw;
+    }
+}
+
+@media (min-width: 750px) {
+    .in-text {
+        font-size: 4vh;
+    }
+}
+
+@media (min-width: 1000px) {
+    .in-text {
+        font-size: 6vh;
+    }
+}
+
+@media (min-width: 1280px) {
+    .in-text {
+        font-size: 6.5vh;
+    }
+
+    .barras {
+        transform: translate(48vh, 0vw);
+    }
+}
+
+@media (min-width: 1900px) {
+    .in-text {
+        font-size: 6.8vh;
+    }
+
+    .barra, .barra.barra-morada3 {
+        border-radius: 37px;
+    }
+
+    .barras {
+        transform: translate(55vh, 0vw);
+    }
+}
+

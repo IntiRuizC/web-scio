@@ -1,0 +1,63 @@
+.clientes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: white;
+    position: relative;
+    padding-left: 1vh;
+}
+
+.top-client {
+    position: sticky; /* Se quedará pegada al contenedor */
+    top: 0; /* Se adhiere a la parte superior */
+    width: 100%; /* Abarca el ancho del contenedor */
+    height: 8vh; /* La altura de la barra */
+    background-color: #fff; /* O el color que prefieras */
+    pointer-events: none; /* No interfiere con clics ni scroll */
+}
+
+.cliente{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #CCCCCC;
+    transition: color 0.2s ease;
+    text-align: left;
+    font-family: "poppins-black";
+    letter-spacing: -2px;
+}
+
+@media (min-width: 750px) {
+    .cliente {
+        font-size: 5rem;
+    }
+
+    .top-client {
+        height: 10vh;
+    }
+
+}
+
+
+@media (min-width: 1000px) {
+    .cliente {
+        padding-left: 6vw;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .top-client {
+        height: 13vh;
+    }
+}
+
+@media (min-width: 1900px) {
+    .top-client {
+        height: 15vh;
+    }
+
+    .cliente {
+        font-size: 6.5rem;
+    }
+}
