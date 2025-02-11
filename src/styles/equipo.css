@@ -1,0 +1,169 @@
+.equipo {
+    display: flex;
+    gap: 40px;
+    padding: 30px;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: white;
+    font-family: "urbanist-medium";
+}
+
+.lista-burbujas {
+    margin-top: 10vh;
+    position: relative;
+    width: 70vw;
+    height: 45vh;
+}
+
+.burbuja {
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    max-width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+}
+
+.burbuja:hover {
+    background: #e3e3e3;
+    transform: translateX(10px);
+}
+
+.burbuja img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Columna derecha - Detalle */
+.columna-detalle {
+    padding: 20px;
+}
+
+.placeholder-detalle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #666;
+    font-style: italic;
+}
+
+/* Estilos de la tarjeta de persona */
+.tarjeta-persona {
+    display: flex;
+    justify-content: center;
+    color: #333333;
+}
+
+.info-persona {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 55vw;
+}
+
+.tarjeta-persona span {
+    font-size: 0.85rem;
+}
+
+.foto-perfil {
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-persona .nombre {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    width: 20vw;
+}
+
+.nombre, .info-persona span{
+    padding-left: 1rem;
+}
+
+.box-divi {
+    margin-top: 5%;
+    width: 100%;
+    height: 1vh;
+    border-left: 1px solid #333333a2;
+    border-right: 1px solid #333333a2;
+    border-bottom: 1px solid #333333a2;
+}
+
+.info-persona .cargo {
+    font-size: .9rem;
+    text-align: left;
+}
+
+.detalle {
+    padding-left: 1rem;
+}
+
+.cargo {
+    padding: 1rem 0;
+    width: 50%;
+}
+.block-det {
+    width: 20%;
+    height: 9px;
+    background-color: black;
+}
+
+.detalle p {
+    font-size: 0.9rem;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333333;
+}
+
+.burbuja1 {
+    position: absolute;
+    left: 24%;
+    top: 76%;
+}
+
+.burbuja2 {
+    position: absolute;
+    top: 29%;
+    left: 62%;
+}
+
+.burbuja3 {
+    position: absolute;
+    left: 6%;
+    top: 33%;
+}
+
+.burbuja4 {
+    position: absolute;
+    left: 26%;
+    top: 50%;
+}
+
+.burbuja5 {
+    position: absolute;
+    left: 35%;
+    top: 23%;
+}
+
+.burbuja6 {
+    position: absolute;
+    left: 63%;
+    top: 48%;
+}
+
+.burbuja7 {
+    position: absolute;
+    left: 52%;
+    top: 71%;
+}
+
+.burbuja8 {
+    position: absolute;
+    left: 78%;
+    top: 62%;
+}
