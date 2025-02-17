@@ -4,6 +4,7 @@ import Home from './components/inicio'
 import Clientes from './components/clientes'
 import Nosotros from './components/nosotros'
 import  Equipo  from "./components/equipo";
+import Contacto from "./components/contacto"
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
       <Clientes />
       <Nosotros />
       <Equipo />
+      <Contacto />
     </div>
   );
 }
 
 export default App;
-

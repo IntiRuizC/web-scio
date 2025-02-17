@@ -1,0 +1,161 @@
+.contacto-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 7vh;
+    margin: 0 auto;
+    background-color: hsla(32, 88%, 58%);
+    color: white;
+    height: 95vh;
+    text-align: left;
+
+}
+
+.section-header h2 {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: .5rem;
+}
+
+.social-section {
+    text-align: left;
+    padding-top: 10vh;
+}
+
+.links-container {
+    display: flex;
+    gap: .3rem;
+}
+
+.social-link {
+    padding: .2rem;
+    color: white;
+    font-size: .8rem;
+}
+
+.social-link p {
+    margin: 0;
+    cursor: pointer;
+}
+
+
+.form-section {
+    flex: 2;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 5vh;
+}
+
+.section-header {
+    font-size: 1.5rem;
+}
+
+.submit-container {
+    align-self: end;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.check-element {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.check-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #2980b9;
+    border-radius: 4px;
+}
+
+.submit-button {
+    background: #2980b9;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button p {
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.submit-button:hover {
+    background: #1a5276;
+}
+
+
+/* Añade estos estilos a tu CSS existente */
+
+.input-field input,
+.message-field textarea {
+    color: white;
+    width: 70vw;
+    padding: 0.3rem;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    background-color: hsla(32, 88%, 58%);
+    font-size: .9rem;
+    transition: border-color 0.3s ease;
+}
+
+::placeholder {
+    color: white; 
+    opacity: 1; 
+  }
+
+.input-field input:focus,
+.message-field textarea:focus {
+    outline: none;
+    border-color: #036E7C;
+}
+
+.check-element {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.check-box {
+    width: 20px;
+    height: 20px;
+    accent-color: #036E7C;
+}
+
+.message-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-button {
+    background: #ffbf77;
+    padding: .5rem .8rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3sease;
+    font-size: 0.75rem;
+}
+
+.submit-button:hover {
+    background: #036E7C;
+}
+
+.submit-button p {
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
