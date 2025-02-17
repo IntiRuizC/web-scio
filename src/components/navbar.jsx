@@ -114,6 +114,54 @@ const NavBar = () => {
     
             return ScrollTrigger.create(config);
         };
+
+        const otherScroll = (isMobile, isDesktop) => {
+            const config = {
+                trigger: ".contacto-container",
+                start: "top+=1200vh top+=50vh",
+                end: "bottom+=1150vh top",
+                onEnter: () => getAnimations(isMobile, isDesktop).play(),
+                onLeave: () => {
+                    const tl = gsap.timeline()
+                        .to(".logoblanco", { opacity: 0 })
+                        .to(".logocolor", { opacity: 1 }, "<");
+    
+                    if (isMobile) {
+                        tl.to(".menu", { 
+                            backgroundColor: "#036E7C", 
+                            color: "white" 
+                        }, "<");
+                    }
+    
+                    if (isDesktop) {
+                        tl.to(".ulvert, .ulhor", { 
+                            color: "rgb(51, 51, 51)" 
+                        }, "<");
+                    }
+                },
+                onEnterBack: () => getAnimations(isMobile, isDesktop).play(),
+                onLeaveBack: () => {
+                    const tl = gsap.timeline()
+                        .to(".logoblanco", { opacity: 0 })
+                        .to(".logocolor", { opacity: 1 }, "<");
+    
+                    if (isMobile) {
+                        tl.to(".menu", { 
+                            backgroundColor: "#036E7C", 
+                            color: "white" 
+                        }, "<");
+                    }
+    
+                    if (isDesktop) {
+                        tl.to(".ulvert, .ulhor", { 
+                            color: "rgb(51, 51, 51)" 
+                        }, "<");
+                    }
+                }
+            };
+    
+            return ScrollTrigger.create(config);
+        };
     
         // Handler para resize con lógica centralizada
         const handleResize = () => {
@@ -128,6 +176,7 @@ const NavBar = () => {
     
             // Crear nueva instancia con configuración adecuada
             triggerInstance = createScrollTrigger(isMobile, isDesktop);
+            triggerInstance = otherScroll(isMobile, isDesktop);
         };
     
         // Event listeners y limpieza

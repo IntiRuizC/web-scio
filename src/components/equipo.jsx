@@ -95,9 +95,6 @@ const Equipo = () => {
         }
     ];
 
-    const handleClickPersona = (persona) => {
-        setPersonaSeleccionada(persona);
-    };
 
     return (
         <div className="equipo">
