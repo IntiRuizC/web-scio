@@ -1,3 +1,31 @@
+
+
+# Web SCIO
+## Containerización con docker
+### Construir la imagen del contenedor
+Para construir la imagen a partir del archivo Dockerfile, Se debe ejecutar el siguiente comando desde el root del proyecto
+```shell
+docker build -t web-scio .
+```
+Esto construye la imagen llamada 'web-scio'. Este comando solo se debe ejecutar una vez, a menos que cambien los archivos:
+* ```project.json```
+* ```.dockerignore```
+* ```Dockerfile```
+
+### Ejecutar el contenedor
+Para correr el contenedor se ejecuta el comando desde la terminal, en el root del proyecto
+```shell
+docker run -it -p 3000:3000 -v $(pwd):/app -v /app/node_modules   web-scio
+```
+El sitio es accessible a través del link: http://localhost:3000/
+
+### Matar el contenedor que está corriendo
+Para matar el contenedor corriendo en la terminal se usa ```Ctrl+c``` o se cierra la terminal, acabando con el proceso. 
+
+
+------------
+------------
+------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
