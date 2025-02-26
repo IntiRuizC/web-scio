@@ -71,7 +71,7 @@ const NavBar = () => {
             const config = {
                 trigger: ".nosotros",
                 start: "top+=1200vh top+=50vh",
-                end: "bottom+=1150vh top",
+                end: "bottom+=1100vh top",
                 onEnter: () => getAnimations(isMobile, isDesktop).play(),
                 onLeave: () => {
                     const tl = gsap.timeline()
@@ -118,8 +118,9 @@ const NavBar = () => {
         const otherScrollTriguer = (isMobile, isDesktop) => {
             const config = {
                 trigger: ".contacto-container",
+                markers: true,
                 start: "top+=1200vh top+=50vh",
-                end: "bottom+=1150vh top",
+                end: "bottom+=1900vh top",
                 onEnter: () => getAnimations(isMobile, isDesktop).play(),
                 onLeave: () => {
                     const tl = gsap.timeline()

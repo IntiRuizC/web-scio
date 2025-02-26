@@ -8,6 +8,8 @@ const Persona = ({ nombre, cargo, correo, dependencia, area, imagen, color }) =>
                 <span style={{color: color}} >Área: {area}</span>
                 <div className="box-divi"></div>
                 
+                <div className="linea-equi"></div>
+
                 <div className="detalle">
                     <h4 className="cargo">{cargo}</h4>
                     <div className="block-det"></div>

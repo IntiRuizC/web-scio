@@ -1,5 +1,5 @@
 import "../styles/nosotros.css";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,61 +10,54 @@ export default function ScrollAnimation() {
     const valuesRef = useRef(null);
     const lineRef = useRef(null);
 
-    // Estado para controlar el texto dinámico
-    const [transdisciplinariedadText, setTransdisciplinariedadText] = useState("TRANSDISCIPLINARIEDAD");
-
+    // Animación principal del texto
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 1100) {
-                setTransdisciplinariedadText("TRANSDIS- <br /> CIPLINARIEDAD");
-            } else {
-                setTransdisciplinariedadText("TRANSDISCIPLINARIEDAD");
+        const masterTL = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".text-section",
+                start: "top top",
+                end: "+=100", // Altura completa de la sección
+                scrub: 2,
+                pin: true,
+                anticipatePin: 1
             }
-        };
+        });
 
-        window.addEventListener("resize", handleResize);
+        masterTL.fromTo(".text-section",
+            { x: "100%", opacity: 0 },
+            { 
+                x: "0%", 
+                opacity: 1,
+                ease: "power2.inOut"
+            }
+        );
 
-        handleResize();
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
-    const renderTransdisciplinariedadText = transdisciplinariedadText.split('<br />').map((part, index) => (
-        <span key={index}>
-            {part}
-            {index < transdisciplinariedadText.split('<br />').length - 1 && <br />}
-        </span>
-    ));
-
-
+    // Animación de la barra de progreso
     useEffect(() => {
         const progressBar = lineRef.current;
-
-        // Animación con GSAP y ScrollTrigger
-        gsap.fromTo(
-            progressBar,
+        
+        gsap.fromTo(progressBar,
             { height: "0%" },
             {
                 height: "100%",
                 ease: "none",
                 scrollTrigger: {
-                    trigger: valuesRef.current,
+                    trigger: ".values-section",
                     start: "top center",
                     end: "bottom center",
                     scrub: 2,
-                },
+                }
             }
         );
 
-        // Limpieza de la animación al desmontar el componente
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
-    // Configuración de la animación para el texto y las bolitas
+
+
     useEffect(() => {
         // Animación para todos los elementos .value
         gsap.utils.toArray(".value").forEach((value, i) => {
@@ -76,8 +69,8 @@ export default function ScrollAnimation() {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: value,
-                    start: "top center+=100",
-                    end: "top center",
+                    start:  "top+=20 center",
+                    end:  "bottom+=20 center",
                     scrub: 1,
                 }
             });
@@ -90,8 +83,8 @@ export default function ScrollAnimation() {
 
             // Animación para la bolita
             tl.fromTo(subBall,
-                { backgroundColor: "#cccccc)" },
-                { backgroundColor: "hsla(32, 88%, 58%, 0.93)" },
+                { backgroundColor: "#cccccc" },
+                { backgroundColor: "#666666" },
                 "-=0.5"
             );
         });
@@ -114,7 +107,6 @@ export default function ScrollAnimation() {
             <div className="values-section" ref={valuesRef}>
                 <h2>VALORES</h2>
                 <div className="line-container">
-
                     <div className="progress">
                         <div className="line-background">
                             <div className="line-progress" ref={lineRef}></div>
@@ -129,7 +121,6 @@ export default function ScrollAnimation() {
                             <div className="ball-contain">
                                 <div className="sub-ball"></div>
                             </div>
-
                             <div className="val-description">
                                 <p>
                                     Cuestionar y verificar la información antes de aceptarla, garantizando
@@ -173,7 +164,7 @@ export default function ScrollAnimation() {
                         </div>
                         <div className="value">
                             <div className="subtittle">
-                                <h3>{renderTransdisciplinariedadText}</h3>
+                                <h3>TRANS- DISCIPLINARIEDAD</h3>
                             </div>
                             <div className="ball-contain">
                                 <div className="sub-ball"></div>
@@ -208,3 +199,4 @@ export default function ScrollAnimation() {
         </div>
     );
 }
+
