@@ -6,10 +6,13 @@
     flex-direction: column;
     background-color: white;
     font-family: "urbanist-medium";
+    position: relative;
+    width: 100vw;
 }
 
 .lista-burbujas {
     margin-top: 10vh;
+    margin-left: 1vw;
     position: relative;
     width: 70vw;
     height: 45vh;
@@ -22,6 +25,7 @@
     max-width: fit-content;
     height: fit-content;
     border-radius: 50%;
+    position: absolute;
 }
 
 .burbuja:hover {
@@ -36,7 +40,7 @@
     object-fit: cover;
 }
 
-/* Columna derecha - Detalle */
+
 .columna-detalle {
     padding: 20px;
 }
@@ -46,15 +50,16 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: #666;
-    font-style: italic;
+    color: #666666;
+    text-align: left;
+    font-family: "urbanist-regular";
 }
 
-/* Estilos de la tarjeta de persona */
+
 .tarjeta-persona {
     display: flex;
     justify-content: center;
-    color: #333333;
+    color: black;
 }
 
 .info-persona {
@@ -77,9 +82,11 @@
     font-size: 1.5rem;
     margin-bottom: 10px;
     width: 20vw;
+    font-weight: 500;
 }
 
-.nombre, .info-persona span{
+.nombre,
+.info-persona span {
     padding-left: 1rem;
 }
 
@@ -95,6 +102,7 @@
 .info-persona .cargo {
     font-size: .9rem;
     text-align: left;
+    font-weight: 500;
 }
 
 .detalle {
@@ -105,6 +113,7 @@
     padding: 1rem 0;
     width: 50%;
 }
+
 .block-det {
     width: 20%;
     height: 9px;
@@ -117,53 +126,326 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #333333;
-}
-
-.burbuja1 {
-    position: absolute;
-    left: 24%;
-    top: 76%;
-}
-
-.burbuja2 {
-    position: absolute;
-    top: 29%;
-    left: 62%;
-}
-
-.burbuja3 {
-    position: absolute;
-    left: 6%;
-    top: 33%;
-}
-
-.burbuja4 {
-    position: absolute;
-    left: 26%;
-    top: 50%;
-}
-
-.burbuja5 {
-    position: absolute;
-    left: 35%;
-    top: 23%;
-}
-
-.burbuja6 {
-    position: absolute;
-    left: 63%;
-    top: 48%;
-}
-
-.burbuja7 {
-    position: absolute;
-    left: 52%;
-    top: 71%;
 }
 
 .burbuja8 {
+    left: 20%;
+    top: 74%;
+}
+
+.burbuja2 {
+    top: 32%;
+    left: 77%;
+}
+
+.burbuja3 {
+    left: 19%;
+    top: 29%;
+}
+
+.burbuja4 {
+    left: 26%;
+    top: 53%;
+}
+
+.burbuja5 {
+    left: 47%;
+    top: 18%;
+}
+
+.burbuja6 {
+    left: 60%;
+    top: 50%;
+
+}
+
+.burbuja7 {
+    left: 52%;
+    top: 80%;
+}
+
+.burbuja1 {
+    left: 82%;
+    top: 64%;
+}
+
+.burbuja-rell1, .burbuja-rell2, .burbuja-rell3,
+.burbuja-rell4, .burbuja-rell5, .burbuja-rell6,
+.burbuja-rell7 {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: solid 1px #999999;
     position: absolute;
-    left: 78%;
-    top: 62%;
+}
+
+.burbuja-rell1 {
+    left: 48%;
+    top: 42%;
+}
+
+.burbuja-rell2 {
+    left: 15%;
+    top: 58%;
+}
+
+.burbuja-rell3 {
+    left: 60%;
+    top: 37%;
+}
+
+.burbuja-rell4 {
+    left: 52%;
+    top: 53%;
+}
+
+.burbuja-rell5 {
+    left: 49%;
+    top: 66%;
+}
+
+.burbuja-rell6 {
+    left: 69%;
+    top: 70%;
+}
+
+.burbuja-rell7 {
+    left: 91%;
+    top: 57%;
+}
+
+@media (min-width: 1000px) {
+    .linea-equi {
+        position: absolute;
+        width: 5vw;
+        height: 1px;
+        background-color: black;
+        top: 10vh;
+        left: 21vw;
+    }
+    .placeholder-detalle {
+        position: relative;
+        left: -5vw;
+        width: 40vw;
+    }
+
+    .info-persona {
+        position: relative;
+        left: 5vw;
+        top: -15vh;
+        width: 74vw;
+    }
+
+
+    .lista-burbujas {
+        width: 28vw;
+        height: 47vh;
+        left: 33vw;
+        margin-top: 17vh;
+        z-index: 1000;
+    }
+
+    .burbuja img {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .columna-detalle {
+        position: absolute;
+        top: 41%;
+        left: 8%;
+        ;
+    }
+
+    .info-persona .nombre {
+        font-size: 3rem;
+    }
+
+    .box-divi {
+        position: absolute;
+        top: -5vh;
+        left: 54vw;
+        width: 2vw;
+        height: 36vh;
+        border-top: 1.1px solid #333333a2;
+        border-right: 1.1px solid #333333a2;
+        border-bottom: 1.1px solid #333333a2;
+        border-left: 0px;
+    }
+
+    .detalle p{
+        width: 30vh;
+        position: absolute;
+        left: 58vw;
+        top: 24vh;
+        font-size: 1.3rem;
+    }
+
+    .info-persona .cargo {
+        position: absolute;
+        font-size: 1.9rem;
+        left: 58vw;
+        top: 7vh;
+        width: 30vh;
+    }
+
+    .block-det {
+        position: absolute;
+        left: 58vw;
+        top: 22vh;
+        width: 5vh;
+    }
+
+    .tarjeta-persona span {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (min-width: 1200px) { 
+    .linea-equi {
+        width: 5vw;
+        top: 9vh;
+        left: 19vw;
+    }
+    .lista-burbujas {
+        left: 35vw;
+    }
+
+    .burbuja img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .burbuja1 {
+        left: 80%;
+        top: 82%;
+    }
+
+    .burbuja2 {
+        top: 9%;
+        left: 60%;
+    }
+
+    .burbuja3 {
+        left: 7%;
+        top: 26%;
+    }
+
+    .burbuja4 {
+        left: 33%;
+        top: 52%;
+    }    
+
+    .burbuja5 {
+        left: 31%;
+        top: -5%;
+    }
+
+    .burbuja6 {
+        left: 68%;
+        top: 46%;
+    }
+
+    .burbuja7 {
+        left: 50%;
+        top: 99%;
+    }
+
+    .burbuja8 {
+        left: 14%;
+        top: 86%;
+    }
+    
+    
+
+    .burbuja-rell1 {
+        left: 35%;
+        top: 30%;
+    }
+
+    .burbuja-rell2 {
+        left: 17%;
+        top: 70%;
+    }
+
+    .burbuja-rell3 {
+        top: 46%;
+        left: 57%;
+    }
+
+    .burbuja-rell4 {
+        left: 63%;
+        top: 75%;
+    }
+
+    .burbuja-rell5 {
+        left: 49%;
+        top: 91%;
+    }   
+
+    .burbuja-rell6 {
+        left: 74%;
+        top: 90%;
+    }
+
+    .burbuja-rell7 {
+        left: 91%;
+        top: 37%;
+    }
+
+    .info-persona .cargo {
+        left: 58vw;
+    }
+    .block-det {
+        top: 24vh;
+    }
+    
+    .detalle p {
+        top: 25vh;
+    }
+    .block-det, .detalle p{
+        left: 58vw;
+    }
+
+    .box-divi {
+        border-top: 1.3px solid #333333a2;
+        border-right: 1.3px solid #333333a2;
+        border-bottom: 1.3px solid #333333a2;
+        border-left: 0px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .info-persona .nombre {
+        font-size: 4rem;
+    }
+    .info-persona .cargo {
+        font-size: 3.1rem;
+        width: 36vh;
+    }
+
+    .burbuja img {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .detalle p {
+        font-size: 1.8rem;
+    }
+
+    .tarjeta-persona span {
+        font-size: 1.8rem;
+    }
+
+    .placeholder-detalle {
+        left: 6vw;
+        width: 19vw;
+        font-size: 2rem;
+    }
+
+    .burbuja-rell1, .burbuja-rell2, .burbuja-rell3, .burbuja-rell4, .burbuja-rell5, .burbuja-rell6, .burbuja-rell7 {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 }

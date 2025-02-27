@@ -1,0 +1,325 @@
+.contacto-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 9vh;
+    margin: 0 auto;
+    background-color: hsla(32, 88%, 58%);
+    color: white;
+    height: 95vh;
+    text-align: left;
+    font-family: "poppins-semibold";
+    width: 100vw;
+    overflow-x: hidden;
+
+}
+
+.con-contact {
+    gap: 5vh;
+}
+
+.arrow-link {
+    display: none;
+}
+
+.section-header h2 {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: .5rem;
+}
+
+.social-section {
+    text-align: left;
+    padding-top: 10vh;
+}
+
+.links-container {
+    display: flex;
+    margin-top: 3vh;
+    gap: .3rem;
+    font-family: "urbanist-semibold";
+}
+
+.social-link {
+    color: white;
+    font-size: .8rem;
+    text-decoration: none;
+    text-indent: 0.8vh;
+    width: 22vw;
+}
+
+
+
+.social-link :hover {
+    border-bottom: solid 1px white;
+    padding-bottom: 0.5vh;
+}
+
+.social-link p {
+    margin: 0;
+    cursor: pointer;
+}
+
+
+.form-section {
+    padding-top: 10vh;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 8vh;
+}
+
+.section-header {
+    font-size: 1.5rem;
+}
+
+.submit-container {
+    align-self: end;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.check-element {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.submit-button {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button p {
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Añade estos estilos a tu CSS existente */
+
+.input-field input,
+.message-field textarea {
+    color: white;
+    width: 70vw;
+    padding: 0.3rem;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    background-color: hsla(32, 88%, 58%);
+    font-size: .9rem;
+    transition: border-color 0.3s ease;
+    font-family: "poppins-regular";
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.input-field input:focus,
+.message-field textarea:focus {
+    outline: none;
+}
+
+.check-element {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.check-box {
+    width: 20px;
+    height: 20px;
+}
+
+.message-field textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: "urbanist-medium";
+}
+
+.submit-button {
+    background: #ffbf77;
+    padding: .5rem .8rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3sease;
+    font-size: 0.75rem;
+    font-family: "poppins-semibold";
+    margin: 5vh;
+    margin-top: 3vh;
+}
+
+.submit-button p {
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1000px) {
+
+    .con-contact {
+        display: flex;
+        position: relative;
+        flex-direction: row-reverse;
+        width: 100vw;
+        justify-content: space-between;
+    }
+
+    .arrow-link {
+        opacity: 0;
+        display: block;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .social-link:hover .arrow-link {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .contacto-container {
+        padding-left: 20vw;
+        flex-direction: row-reverse;
+    }
+
+    .form-section,
+    .input-field input,
+    .message-field textarea {
+        width: 38vw;
+        font-size: 1.2rem;
+        padding-top: 0;
+    }
+
+    .section-header {
+        margin-top: 15vh;
+        font-size: 1.9rem;
+    }
+
+    .submit-button {
+        margin: 5vh -1.5vw 0 0;
+        font-size: 1.2rem;
+    }
+
+    .section-header h2 {
+        text-transform: uppercase;
+        font-size: 1.4rem;
+    }
+
+    .links-container {
+        flex-direction: column;
+        width: 26vw;
+    }
+
+    .social-section {
+        padding-right: 6vw;
+    }
+
+    .social-link {
+        font-size: 2.3rem;
+        font-weight: 600;
+        text-indent: 0.8vw;
+    }
+
+    .social-link p {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .arrow-link {
+        width: 2.3rem;
+    }
+
+    .social-link :hover {
+        border-bottom: solid 2px white;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    form-section,
+    .input-field input,
+    .message-field textarea {
+        width: 29.5vw;
+    }
+
+    .form-container {
+        gap: 1.9rem;
+        padding-top: 9vh;
+    }
+
+    .contacto-container {
+        padding-left: 19vw;
+    }
+
+    .submit-button {
+        margin: 5vh 12.5vw 0 0;
+    }
+
+    .links-container {
+        gap: .7rem;
+        width: 23vw;
+    }
+
+    .arrow-link {
+        width: 2.6rem;
+    }
+
+    .section-header {
+        margin-top: 15vh;
+    }
+
+    .social-section {
+        padding-right: 6vw;
+        padding-top: 20vh;
+    }
+
+    .section-header h2 {
+        margin-bottom: 4vh;
+        padding-left: 1vw;
+    }
+}
+
+@media (min-width: 1900px) {
+
+    .form-section,
+    .input-field input,
+    .message-field textarea {
+        font-size: 1.8rem;
+        padding-top: 0;
+    }
+
+    .section-header {
+        font-size: 2.6rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .social-link {
+        font-size: 3.2rem;
+    }
+
+    .links-container {
+        width: 22vw;
+        gap: 1.8rem;
+    }
+
+    .submit-button {
+        font-size: 1.8rem;
+        margin: 5vh 7.8vw 0 0;
+    }
+}

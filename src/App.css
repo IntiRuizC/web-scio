@@ -19,13 +19,43 @@
 }
 
 @font-face {
+  font-family: 'urbanist-regular';
+  src: url('./tipografia/Urbanist-Regular.ttf');
+}
+
+@font-face {
   font-family: 'urbanist-medium';
   src: url('./tipografia/Urbanist-Medium.ttf');
 }
 
 @font-face {
+  font-family: 'urbanist-semibold';
+  src: url('./tipografia/Urbanist-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'urbanist-bold';
+  src: url('./tipografia/Urbanist-Bold.ttf');
+}
+
+@font-face {
   font-family: 'poppins-regular';
   src: url('./tipografia/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'poppins-semibold';
+  src: url('./tipografia/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'bonobo-regular';
+  src: url('./tipografia/Bonobo\ Regular.ttf');
+}
+
+@font-face {
+  font-family: 'merriweather-Regular';
+  src: url('./tipografia/Merriweather-Regular.ttf');
 }
 
 html, body, div, span, object, iframe,
@@ -53,6 +83,7 @@ time, mark, audio, video {
 body {
   line-height:1;
   font-family: "poppins";
+  overflow-x: hidden;
 }
 
 article,aside,details,figcaption,figure,
