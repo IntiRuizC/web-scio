@@ -98,7 +98,7 @@ const Equipo = () => {
 
 
     return (
-        <div className="equipo">
+        <div className="equipo" id="equipo">
             <div className="columna-burbujas">
                 <h2>Nuestro Equipo</h2>
                 <div className="lista-burbujas">

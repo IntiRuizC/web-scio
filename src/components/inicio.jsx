@@ -80,7 +80,7 @@ const Inicio = () => {
     ));
 
     return (
-        <div className="inicio">
+        <div className="inicio" id="inicio">
             <div className="in-text">
                 {renderTexto}
             </div>

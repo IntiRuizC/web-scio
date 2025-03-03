@@ -75,10 +75,16 @@ export default function ScrollAnimation() {
                 }
             });
 
-            // Animación para el texto
-            tl.fromTo([h3, p],
+            tl.fromTo(h3,
                 { opacity: 0.3, y: 20 },
-                { opacity: 1, y: 0, color: "#fff" }
+                { opacity: 1, y: 0, color: "#ce3c15" }
+            );
+    
+            // Animación para el p, sincronizada con el h3
+            tl.fromTo(p,
+                { opacity: 0.3, y: 20 },
+                { opacity: 1, y: 0, color: "white" }, // Nuevo color para el p
+                "<" // Esto asegura que ambas animaciones inicien al mismo tiempo
             );
 
             // Animación para la bolita
@@ -94,7 +100,8 @@ export default function ScrollAnimation() {
     }, []);
 
     return (
-        <div className="nosotros">
+        <div className="nosotros" id="nosotros">
+            
             <div className="text-section" ref={textContainerRef}>
                 <p>
                     SCIO es una organización sin ánimo de lucro que, desde hace más de 15 años, transforma datos complejos
@@ -103,6 +110,8 @@ export default function ScrollAnimation() {
                     creamos visualizaciones que no solo son claras y efectivas, sino también pedagógicas.
                 </p>
             </div>
+
+            <div className="top-nos"></div>
 
             <div className="values-section" ref={valuesRef}>
                 <h2>VALORES</h2>
@@ -164,7 +173,7 @@ export default function ScrollAnimation() {
                         </div>
                         <div className="value">
                             <div className="subtittle">
-                                <h3>TRANS- DISCIPLINARIEDAD</h3>
+                                <h3>TRANS- <br /> DISCIPLINARIEDAD</h3>
                             </div>
                             <div className="ball-contain">
                                 <div className="sub-ball"></div>

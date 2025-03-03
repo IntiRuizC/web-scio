@@ -1,12 +1,11 @@
 .contacto-container {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     gap: 9vh;
     margin: 0 auto;
-    background-color: hsla(32, 88%, 58%);
+    background-color: #036E7C;
     color: white;
-    height: 95vh;
+    height: 100vh;
     text-align: left;
     font-family: "poppins-semibold";
     width: 100vw;
@@ -16,6 +15,7 @@
 
 .con-contact {
     gap: 5vh;
+    margin-left: 15vw;
 }
 
 .arrow-link {
@@ -114,7 +114,7 @@
     padding: 0.3rem;
     border: none;
     border-bottom: 2px solid #ffffff;
-    background-color: hsla(32, 88%, 58%);
+    background-color: #036E7C;
     font-size: .9rem;
     transition: border-color 0.3s ease;
     font-family: "poppins-regular";
@@ -149,7 +149,7 @@
 }
 
 .submit-button {
-    background: #ffbf77;
+    background: #088899;
     padding: .5rem .8rem;
     border: none;
     cursor: pointer;
@@ -173,8 +173,9 @@
         display: flex;
         position: relative;
         flex-direction: row-reverse;
-        width: 100vw;
         justify-content: space-between;
+        margin-left: 17vw;
+        padding-top: 7vh;
     }
 
     .arrow-link {
@@ -189,10 +190,6 @@
         visibility: visible;
     }
 
-    .contacto-container {
-        padding-left: 20vw;
-        flex-direction: row-reverse;
-    }
 
     .form-section,
     .input-field input,
@@ -260,12 +257,9 @@
         padding-top: 9vh;
     }
 
-    .contacto-container {
-        padding-left: 19vw;
-    }
 
     .submit-button {
-        margin: 5vh 12.5vw 0 0;
+        margin: 5vh 7.5vw 0 0;
     }
 
     .links-container {
@@ -290,6 +284,7 @@
         margin-bottom: 4vh;
         padding-left: 1vw;
     }
+
 }
 
 @media (min-width: 1900px) {

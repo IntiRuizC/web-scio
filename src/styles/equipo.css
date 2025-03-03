@@ -1,7 +1,6 @@
 .equipo {
     display: flex;
     gap: 40px;
-    padding: 30px;
     min-height: 100vh;
     flex-direction: column;
     background-color: white;
@@ -16,6 +15,7 @@
     position: relative;
     width: 70vw;
     height: 45vh;
+    left: 6vw;
 }
 
 .burbuja {
@@ -225,8 +225,8 @@
     }
     .placeholder-detalle {
         position: relative;
-        left: -5vw;
-        width: 40vw;
+        left: 3vw;
+        width: 14vw;
     }
 
     .info-persona {
@@ -306,15 +306,15 @@
     .linea-equi {
         width: 5vw;
         top: 9vh;
-        left: 19vw;
+        left: 16vw;
     }
     .lista-burbujas {
         left: 35vw;
     }
 
     .burbuja img {
-        width: 4rem;
-        height: 4rem;
+        width: 5rem;
+        height: 5rem;
     }
 
     .burbuja1 {

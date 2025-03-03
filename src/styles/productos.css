@@ -1,0 +1,41 @@
+.productos-container {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    background-color: #036E7C;
+}
+
+.productos {
+    display: flex;
+    width: max-content;
+    position: relative;
+    height: 100vh;
+    flex-direction: row-reverse;
+}
+
+img.img-pro1 {
+    display: flex;
+    max-width: 100%;
+}
+
+.producto {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+    color: white;
+    will-change: transform;
+}
+
+.producto {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #036E7C;
+}

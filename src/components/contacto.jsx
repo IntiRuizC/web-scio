@@ -23,20 +23,18 @@ const ContactSection = () => {
             scrollTrigger: {
                 trigger: ".contacto-container",
                 start: "top top",
-                end: "bottom+=10%",
-                scrub: 2,
+                end: "+=600 ",
+                scrub: 1,
                 pin: true,
-                anticipatePin: 1
             }
         })
 
         tl.fromTo(
             element,
-            { x: "100%", opacity: 0 },
+            { x: "100%", opacity: 0, },
             { 
                 x: "0%", 
                 opacity: 1,
-                duration: 2,
                 ease: "power2.inOut"
             },
         );
@@ -54,8 +52,9 @@ const ContactSection = () => {
     };
 
     return (
-        <div className="contacto-container">
+        <div className="contacto-container" id="contacto">
             <div className="con-contact" ref={conContactRef}>
+                <div className="top-cont"></div>
                 <div className="social-section">
                     <div className="section-header">
                         <h2>Siguenos en</h2>

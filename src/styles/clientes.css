@@ -1,22 +1,22 @@
-.clientes {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    background-color: white;
-    position: relative;
-    padding-left: 1vh;
+.clientes-container {
+    background-color: #ffffff;
+    height: 100vh;
     width: 100vw;
+    overflow: hidden;
+    position: relative;
 }
 
 .top-client {
-    position: sticky; /* Se quedará pegada al contenedor */
-    top: 0; /* Se adhiere a la parte superior */
-    width: 100%; /* Abarca el ancho del contenedor */
-    height: 8vh; /* La altura de la barra */
-    background-color: #fff; /* O el color que prefieras */
-    pointer-events: none; /* No interfiere con clics ni scroll */
+    position: absolute; /* Cambiamos de sticky a absolute */
+    top: 0;
+    height: 8vh;
+    background: white;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none; /* Permite hacer clic a través de él */
+    transform: translateY(var(--y)); /* Usaremos esta variable con GSAP */
 }
+
 
 .cliente{
     font-size: 1.5rem;
@@ -26,7 +26,30 @@
     text-align: left;
     font-family: "poppins-black";
     letter-spacing: -2px;
+    padding-left: 1vh;
+    position: relative; /* Importante para el cálculo de posición */
+    z-index: 1;
 }
+
+
+
+.clientes-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 100%; 
+    will-change: transform;
+}
+
+.cliente-activo {
+    color: #ce3c15;
+}
+
+
+
+
+
+
 
 @media (min-width: 750px) {
     .cliente {
