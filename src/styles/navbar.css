@@ -115,12 +115,16 @@
 
     .ulhor {
         left: -9.6vw;
-        top: 30vh;
+        top: 32vh;
         font-size: 0.9rem;
     }
 }
 
 @media (min-width: 1900px) {
+    .ulvert, .ulhor {
+        gap: 4vh;
+    }
+
     .logocolor {
         transform: translateY(-108%);
     }
@@ -131,7 +135,7 @@
 
     .ulhor {
         left: -8.6vw;
-        top: 30vh;
+        top: 33vh;
         font-size: 1.2rem;
     }
 

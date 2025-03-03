@@ -11,6 +11,7 @@ import paolaImg from "../fotos/Paola_Camacho.jpg";
 import intImg from "../fotos/Inti_Ruiz.jpg";
 const Equipo = () => {
     const [personaSeleccionada, setPersonaSeleccionada] = useState(null);
+    const isMobile = window.innerWidth < 1000;
 
     const equipo = [
         {
@@ -101,12 +102,20 @@ const Equipo = () => {
             <div className="columna-burbujas">
                 <h2>Nuestro Equipo</h2>
                 <div className="lista-burbujas">
+                    <div className="burbuja-rell1"></div>
+                    <div className="burbuja-rell2"></div>
+                    <div className="burbuja-rell3"></div>
+                    <div className="burbuja-rell4"></div>
+                    <div className="burbuja-rell5"></div>
+                    <div className="burbuja-rell6"></div>
+                    <div className="burbuja-rell7"></div>
                     {equipo.map((persona) => (
                         <div
                             key={persona.id}
                             className={`burbuja burbuja${persona.id}`} style={{ 
-                                border: `2px solid ${persona.color}`, // Borde con color del objeto
-                                backgroundColor: "#fff"
+                                border: `${isMobile ?  "3px solid" : "7px solid"} ${persona.color}`, // Borde con color del objeto
+                                backgroundColor: "#fff",
+                                display: "flex"
                             }}
                             onClick={() => setPersonaSeleccionada(persona)}
                         >
