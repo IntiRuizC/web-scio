@@ -16,8 +16,8 @@ VOLUME /app/node_modules
 # Copy project files
 COPY . .
 
-# Expose port 3000 (default for Create React App)
-EXPOSE 3000
+# Expose port 5173 (default for Vite dev server)
+EXPOSE 5173
 
 # Start development server
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
