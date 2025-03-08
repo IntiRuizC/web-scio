@@ -18,23 +18,23 @@ const NavBar = () => {
             
         });
 
-            ScrollTrigger.create({
-                trigger: "#productos",
+        ScrollTrigger.create({
+            trigger: "#productos",
                 start: "top+=1200vh top+=50vh",
                 end: "bottom+=1100vh top",
                 toggleClass: 
                 {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-productos"},
                 
-            });
-
-            ScrollTrigger.create({
-                trigger: "#clientes",
+        });
+        
+        ScrollTrigger.create({
+            trigger: "#clientes",
                 start: "top+=1200vh top+=50vh",
                 end: "bottom+=1100vh top",
                 toggleClass:
                 {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes"},
                 
-            });
+        });
 
             ScrollTrigger.create({
                 trigger: "#nosotros",

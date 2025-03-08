@@ -6,24 +6,20 @@
     position: fixed;
     z-index: 20000;
     width: 100vw;
-    background-color: #ce3d1500;
+    background-color: transparent;
 }
-
+/* .navbar,
+.navbar.in-home,
+.navbar.in-productos,
+.navbar.in-clientes,
+.navbar.in-nosotros,
+.navbar.in-equipo,
+.navbar.in-contacto {
+    background-color: transparent !important;
+} */
 .ulvert {
     color: #333333;
 }
-
-
-
-
-
-
-
-.navbar.in-hero {
-    background-color: transparent;
-}
-
-
 .logoblanco.in-home {
     opacity: 1 ;
 }
@@ -36,10 +32,6 @@
     color: #ffffff;
 }
 
-
-.navbar.in-productos {
-    background-color: #036E7C;
-}
 
 .logoblanco.in-productos {
     opacity: 1 ;
@@ -59,20 +51,15 @@
 .navbar.in-productos .ulhor {
     color: white;
 }
-
-.navbar.in-clientes {
-    background-color: white;
-}
-
 .nav-clien.in-clientes {
     color: #f29a36 ;
     font-family: "urbanist-black";
     font-size: 1.4rem;
 }
 
-.in-clientes, .in-equipo, .in-clientes{
-    color: #333333;
-}
+/*.in-clientes, .in-equipo, .in-clientes{*/
+/*    color: #333333;*/
+/*}*/
 
 .navbar.in-clientes .ulvert,
 .navbar.in-clientes .ulhor,
@@ -89,11 +76,6 @@
 .navbar.in-clientes .logocolor {
     opacity: 1;
 }
-
-.navbar.in-nosotros {
-    background-color: #f29a36 ;
-}
-
 .nav-us.in-nosotros {
     color:  #036E7C;
     font-family: "urbanist-black";
@@ -108,11 +90,6 @@
     opacity: 0 ;
 }
 
-
-.navbar.in-equipo {
-    background-color: white ;
-}
-
 .nav-team.in-equipo {
     color:  #f29a36 ;
     font-family: "urbanist-black";
@@ -125,10 +102,6 @@
 
 .logocolor.in-equipo {
     opacity: 1 ;
-}
-
-.navbar.in-contacto {
-    background-color: #036E7C ;
 }
 
 .nav-conta.in-contacto {
@@ -148,14 +121,6 @@
 .navbar.in-contacto .ulhor {
     color: white;
 }
-
-
-
-
-
-
-
-
 
 a {
     color: inherit;
