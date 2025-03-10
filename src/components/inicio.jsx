@@ -33,9 +33,10 @@ const Inicio = () => {
             scrollTrigger: {
                 trigger: ".inicio",
                 start: "top top",
-                end: "+=1200 0",
+                end: "+=300vh top",
                 scrub: 2,
                 pin: true,
+                //markers: true, // Uncomment for debugging
             },
         });
 
@@ -52,18 +53,18 @@ const Inicio = () => {
 
         //debe haber una mejor forma de hacer esto...  🤷‍♂️
         tl.fromTo(".barra-mostaza1", {x: -200, opacity: "0"}, {x: 1, opacity: "1"})
-        .fromTo(".barra-morada1", {y: -200, opacity: "0"}, {y: 1, opacity: "1"})
-        .fromTo(".barra-verde1", { opacity: "0"}, {opacity: "1"})
-        .fromTo(".barra-verde2", {scale: "0.3", opacity: "0"}, {scale: "1", opacity: "1"})
-        .fromTo(".barra-naranja1", {y: "200", opacity: "0"}, {y: "0", opacity: "1"})
-        .fromTo(".barra-mostaza2", {x: -200, opacity: "0"}, {x: 1, opacity: "1"})
-        .fromTo(".barra-naranja2", {scale: "0.2", opacity: "0"}, {scale: "1", opacity: "1"})
-        .fromTo(".barra-verde3", {scale: "0.2", opacity: "0", rotate: "90deg"}, {scale: "1", opacity: "1", rotate: "360deg"})
-        .fromTo(".barra-morada2", {opacity: "0"}, {opacity: "1"})
-        .fromTo(".barra-mostaza3", {scale: "0.2", opacity: "0", rotate: "90deg"}, {scale: "1", opacity: "1", rotate: "360deg"})
-        .fromTo(".barra-verde4", {scale: "0", opacity: "0"}, { scale: "1", opacity: "1"})
-        .fromTo(".barra-morada3", { scale: "0.3", opacity: "0"}, {scale: "1", opacity: "1"})
-        .fromTo(".barra-verde5", {x: -200, opacity: "0"}, {x: 0, opacity: "1"});
+            .fromTo(".barra-morada1", {y: -200, opacity: "0"}, {y: 1, opacity: "1"})
+            .fromTo(".barra-verde1", { opacity: "0"}, {opacity: "1"})
+            .fromTo(".barra-verde2", {scale: "0.3", opacity: "0"}, {scale: "1", opacity: "1"})
+            .fromTo(".barra-naranja1", {y: "200", opacity: "0"}, {y: "0", opacity: "1"})
+            .fromTo(".barra-mostaza2", {x: -200, opacity: "0"}, {x: 1, opacity: "1"})
+            .fromTo(".barra-naranja2", {scale: "0.2", opacity: "0"}, {scale: "1", opacity: "1"})
+            .fromTo(".barra-verde3", {scale: "0.2", opacity: "0", rotate: "90deg"}, {scale: "1", opacity: "1", rotate: "360deg"})
+            .fromTo(".barra-morada2", {opacity: "0"}, {opacity: "1"})
+            .fromTo(".barra-mostaza3", {scale: "0.2", opacity: "0", rotate: "90deg"}, {scale: "1", opacity: "1", rotate: "360deg"})
+            .fromTo(".barra-verde4", {scale: "0", opacity: "0"}, { scale: "1", opacity: "1"})
+            .fromTo(".barra-morada3", { scale: "0.3", opacity: "0"}, {scale: "1", opacity: "1"})
+            .fromTo(".barra-verde5", {x: -200, opacity: "0"}, {x: 0, opacity: "1"});
 
         // Limpieza de animaciones cuando se desmonta
         return () => {
@@ -86,7 +87,7 @@ const Inicio = () => {
             </div>
             <div className="background-white"></div>
 
-            <div className="barras">                                
+            <div className="barras">
                 <div className="barra barra-mostaza1"></div>
                 <div className="barra barra-morada1"></div>
                 <div className="barra barra-verde1"></div>
