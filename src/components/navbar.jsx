@@ -12,35 +12,34 @@ const NavBar = () => {
         ScrollTrigger.create({
             trigger: "#inicio",
             start: "top top+=50vh",
-            end: "top+=100vh top",
-            toggleClass: 
-            {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-home"},
-            
+            end: "+=20vh top",
+            toggleClass:
+            {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-home"}
         });
 
         ScrollTrigger.create({
             trigger: "#productos",
-                start: "top+=1200vh top+=50vh",
-                end: "bottom+=1100vh top",
-                toggleClass: 
+            start: "top+=250vh top",
+            end: "+=2000vh",
+            toggleClass:
                 {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-productos"},
-                
+
         });
-        
+
         ScrollTrigger.create({
             trigger: "#clientes",
                 start: "top+=1200vh top+=50vh",
                 end: "bottom+=1100vh top",
                 toggleClass:
                 {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes"},
-                
+
         });
 
             ScrollTrigger.create({
                 trigger: "#nosotros",
                 start: "top+=1200vh top+=50vh",
                 end: "bottom+=1100vh top",
-                toggleClass: 
+                toggleClass:
                     {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-us"], className: "in-nosotros"},
             });
 
@@ -48,21 +47,21 @@ const NavBar = () => {
                 trigger: "#equipo",
                 start: "top+=1200vh top+=50vh",
                 end: "bottom+=1100vh top",
-                toggleClass: 
+                toggleClass:
                     {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-team"], className: "in-equipo"},
-                
+
             });
 
             ScrollTrigger.create({
                 trigger: "#contacto",
                 start: "top+=1200vh top+=50vh",
                 end: "bottom+=1100vh top",
-                toggleClass: 
+                toggleClass:
                     {targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-conta"], className: "in-contacto"}
-                    
-                
+
+
             });
-        
+
 
 
         // Limpieza al desmontar
@@ -80,7 +79,7 @@ const NavBar = () => {
                 <h4 id="menu-toggle">MENÚ</h4>
                 <div className="list">
                     <ul className='ulvert'>
-                        <li> <a href="#productos" className='nav-prod' > PRODUCTOS  </a> </li> 
+                        <li> <a href="#productos" className='nav-prod' > PRODUCTOS  </a> </li>
                         <li> <a href="#clientes" className='nav-clien' >  CLIENTES </a> </li>
                         <li> <a href="#nosotros" className='nav-us' >  NOSOTROS </a> </li>
                         <li> <a href="#equipo" className='nav-team' >  EQUIPO </a> </li>
