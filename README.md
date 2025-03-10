@@ -14,7 +14,7 @@ Esto construye la imagen llamada 'web-scio'. Este comando solo se debe ejecutar 
 ### Ejecutar el contenedor
 Para correr el contenedor se ejecuta el comando desde la terminal, en el root del proyecto:
 ```shell
-docker run -it -p 5173:5173 -v $(pwd):/app -v /app/node_modules web-scio
+docker run -p 5173:5173 web-scio
 ```
 El sitio es accesible a través del link: http://localhost:5173/
 
