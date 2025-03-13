@@ -35,6 +35,12 @@
     color: black;
 }
 
+.prod-navpos {
+    color: #f29a36 ;
+    font-family: "urbanist-black";
+    font-size: 1.4rem;
+}
+
 .ulvert {
     color: #333333;
 }
@@ -88,7 +94,7 @@
     color: #333333;
 }
 
-.navbar.in-clientes .logoblanco {
+.logoblanco.navbar.in-clientes {
     opacity: 0 ;
 }
 
