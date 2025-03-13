@@ -36,7 +36,7 @@ const Inicio = () => {
                 end: "+=300vh top",
                 scrub: 2,
                 pin: true,
-                //markers: true, // Uncomment for debugging
+                //markers: true, // 
             },
         });
 

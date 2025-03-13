@@ -24,11 +24,24 @@
 
 .producto-1 {
     background-color: white;
+    position: relative;
 }
 
 .producto-2 {
-    background-color: #036E7C;
+    background-color: #036E7C ;
 }
+
+.blend-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 8vh;
+    background: white; /* Color de la zona blanca */
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
 
 /* Make images fill their containers while maintaining aspect ratio */
 .img-pro1, .img-pro2 {

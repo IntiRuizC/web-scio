@@ -5,13 +5,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "urbanist-light";
+    font-family: "urbanist-medium";
     overflow-x: hidden;
+    color: #f7eeba;
 }
 
 .values-section {
     flex-direction: column;
-    font-family: "urbanist-light";
+    font-family: "urbanist-regular";
     letter-spacing: 1px;
 }
 
@@ -34,7 +35,7 @@
 .values-section {
     margin-bottom: 5vh;
     margin-top: 11vh;
-    color: #ce3c15;
+    color: #036E7C;
 }
 
 .text-section {
@@ -44,6 +45,10 @@
     height: 55vh;
     line-height: 1.1;
     padding-top: 10vh;
+}
+
+.text-section span {
+    color: #036E7C;
 }
 
 /* .value {
@@ -92,7 +97,7 @@
 .line-progress {
     width: 100%; /* Inicialmente sin ancho */
     height: 0%;
-    background-color: #666666; 
+    background-color: #036E7C; 
     position: absolute;
     top: 0;
     left: 0;
@@ -152,14 +157,14 @@
         width: 55vw;
         font-size: 1.2rem;
         line-height: 3vh;
-        letter-spacing: 3px;
+        letter-spacing: 1px;
     }
 
     .subtittle {
         transform: translateY(0);
         max-width: 18vw;
         font-size: 1.2rem;
-        letter-spacing: 2px;
+        letter-spacing: 0px;
     }
 
     .line-background {

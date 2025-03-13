@@ -89,7 +89,6 @@ const ProductosScroll = () => {
                 start: "center center+=10%",
                 end: "+=1250vh",
                 scrub: 3,
-                markers: true
             },
         });
 
@@ -99,7 +98,6 @@ const ProductosScroll = () => {
                 start: "top-=200vh top",
                 end: "bottom top",
                 scrub: 2,
-                markers:false
             },
         });
 

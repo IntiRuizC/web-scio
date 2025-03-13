@@ -77,20 +77,20 @@ export default function ScrollAnimation() {
 
             tl.fromTo(h3,
                 { opacity: 0.3, y: 20 },
-                { opacity: 1, y: 0, color: "#ce3c15" }
+                { opacity: 1, y: 0, color: "#036E7C" }
             );
     
             // Animación para el p, sincronizada con el h3
             tl.fromTo(p,
                 { opacity: 0.3, y: 20 },
-                { opacity: 1, y: 0, color: "white" }, // Nuevo color para el p
+                { opacity: 1, y: 0, color: "#f7eeba" }, // Nuevo color para el p
                 "<" // Esto asegura que ambas animaciones inicien al mismo tiempo
             );
 
             // Animación para la bolita
             tl.fromTo(subBall,
                 { backgroundColor: "#cccccc" },
-                { backgroundColor: "#666666" },
+                { backgroundColor: "#036E7C" },
                 "-=0.5"
             );
         });
@@ -104,10 +104,14 @@ export default function ScrollAnimation() {
             
             <div className="text-section" ref={textContainerRef}>
                 <p>
-                    SCIO es una organización sin ánimo de lucro que, desde hace más de 15 años, transforma datos complejos
-                    en herramientas accesibles y útiles. Nuestro proceso comienza con la normalización y organización de la
-                    información, porque sin datos limpios y bien estructurados, no hay análisis que valga. A partir de ahí,
-                    creamos visualizaciones que no solo son claras y efectivas, sino también pedagógicas.
+                En SCIO convertimos <span>datos</span> en historias visuales que potencian decisiones estratégicas. 
+                Nos especializamos en organizar, normalizar, analizar y visualizar información para maximizar 
+                el valor de los <span>datos</span>. Nuestra fortaleza radica en combinar análisis preciso con diseño intuitivo. 
+                Colaboramos con universidades, empresas y entidades públicas, ofreciendo soluciones personalizadas 
+                que abarcan desde catalogación de <span>datos</span> hasta visualizaciones interactivas y recursos pedagógicos. 
+                Cada proyecto busca democratizar el conocimiento, transformando información compleja en herramientas 
+                accesibles. Porque los <span>datos</span> no son un fin, sino un punto de partida para hacer preguntas más idóneas 
+                y construir respuestas más audaces
                 </p>
             </div>
 
