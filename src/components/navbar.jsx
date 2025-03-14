@@ -108,7 +108,6 @@ const NavBar = () => {
             trigger: ".producto-1",
             start: "top+=1300vh top",
             end: "top+=2400vh top",
-            markers: true,
             toggleClass:
             { targets: [".nav-prod"], className: "prod-navpos" }
         });;
