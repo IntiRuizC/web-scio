@@ -1,20 +1,10 @@
 # Web SCIO
 ## Containerización con docker
 
-### Construir la imagen del contenedor
-Para construir la imagen a partir del archivo Dockerfile, se debe ejecutar el siguiente comando desde el root del proyecto:
+### Ejecutar el contenedor de desarrollo
+Para correr el contenedor bajo el archivo docker-compose-dev.yml se ejecuta el comando desde la terminal, en el root del proyecto:
 ```shell
-docker build -t web-scio .
-```
-Esto construye la imagen llamada 'web-scio'. Este comando solo se debe ejecutar una vez, a menos que cambien los archivos:
-* `package.json`
-* `.dockerignore`
-* `Dockerfile`
-
-### Ejecutar el contenedor
-Para correr el contenedor se ejecuta el comando desde la terminal, en el root del proyecto:
-```shell
-docker run -p 5173:5173 web-scio
+docker compose -f docker-compose-dev.yml up
 ```
 El sitio es accesible a través del link: http://localhost:5173/
 
