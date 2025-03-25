@@ -169,6 +169,11 @@
     top: 64%;
 }
 
+.burbuja9 {
+    left: 74%;
+    top: 10%;
+}
+
 .burbuja-rell1, .burbuja-rell2, .burbuja-rell3,
 .burbuja-rell4, .burbuja-rell5, .burbuja-rell6,
 .burbuja-rell7 {
@@ -318,28 +323,28 @@
     }
 
     .burbuja1 {
-        left: 80%;
-        top: 82%;
+        left: 79%;
+        top: 80%;
     }
 
     .burbuja2 {
         top: 9%;
-        left: 60%;
+        left: 63%;
     }
 
     .burbuja3 {
-        left: 7%;
-        top: 26%;
+        left: -16%;
+        top: 52%;
     }
 
     .burbuja4 {
-        left: 33%;
-        top: 52%;
+        left: 17%;
+        top: 46%;
     }    
 
     .burbuja5 {
         left: 31%;
-        top: -5%;
+        top: -1%;
     }
 
     .burbuja6 {
@@ -348,8 +353,8 @@
     }
 
     .burbuja7 {
-        left: 50%;
-        top: 99%;
+        left: 48%;
+        top: 96%;
     }
 
     .burbuja8 {
@@ -357,36 +362,40 @@
         top: 86%;
     }
     
+    .burbuja9 {
+        left: -5%;
+        top: 8%;
+    }
     
 
     .burbuja-rell1 {
-        left: 35%;
-        top: 30%;
+        left: 34%;
+        top: 37%;
     }
 
     .burbuja-rell2 {
-        left: 17%;
-        top: 70%;
+        left: -4%;
+        top: 89%;
     }
 
     .burbuja-rell3 {
-        top: 46%;
-        left: 57%;
+        top: 33%;
+        left: 52%;
     }
 
     .burbuja-rell4 {
-        left: 63%;
-        top: 75%;
+        left: 42%;
+        top: 82%;
     }
 
     .burbuja-rell5 {
-        left: 49%;
-        top: 91%;
+        left: 54%;
+        top: 55%
     }   
 
     .burbuja-rell6 {
         left: 74%;
-        top: 90%;
+        top: 80%;
     }
 
     .burbuja-rell7 {
@@ -416,9 +425,14 @@
     }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1800px) {
     .info-persona .nombre {
         font-size: 4rem;
+        width: 16vw;
+    }
+
+    .info-persona .cargo {
+        top: 5vh;
     }
     .info-persona .cargo {
         font-size: 3.1rem;
@@ -439,7 +453,7 @@
     }
 
     .placeholder-detalle {
-        left: 6vw;
+        left: 3vw;
         width: 19vw;
         font-size: 2rem;
     }

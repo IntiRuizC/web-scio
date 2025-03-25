@@ -9,6 +9,7 @@ import jesusImg from "../fotos/Jesús_Gaitán.jpg";
 import julianaImg from "../fotos/Juliana_Poveda.jpg";
 import paolaImg from "../fotos/Paola_Camacho.jpg";
 import intImg from "../fotos/Inti_Ruiz.jpg";
+import alexandra from "../fotos/Alexandra_Castro.jpg"
 const Equipo = () => {
     const [personaSeleccionada, setPersonaSeleccionada] = useState(null);
     const isMobile = window.innerWidth < 1000;
@@ -93,6 +94,16 @@ const Equipo = () => {
             area: "Administración",
             color: "#036E7C",
             imagen: adrianaxImg
+        },
+        {
+            id: 9,
+            nombre: "María Castro",
+            correo: "acastro@sciocorp.org",
+            dependencia: "Innovación y desarrollo",
+            cargo: "lkdmkfñsmñfa",
+            area: "Comunicación",
+            color: "#F29C37",
+            imagen: alexandra
         }
     ];
 
