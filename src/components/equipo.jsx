@@ -12,7 +12,7 @@ import intImg from "../fotos/Inti_Ruiz.jpg";
 import alexandra from "../fotos/Alexandra_Castro.jpg"
 const Equipo = () => {
     const [personaSeleccionada, setPersonaSeleccionada] = useState(null);
-    const isMobile = window.innerWidth < 1000;
+    const isMobile = window.innerWidth < 1100;
 
     const equipo = [
         {
@@ -123,7 +123,7 @@ const Equipo = () => {
                     {equipo.map((persona) => (
                         <div
                             key={persona.id}
-                            className={`burbuja burbuja${persona.id}`} style={{ 
+                            className={`burbuja burbuja${persona.id} ${personaSeleccionada?.id === persona.id ? 'selected' : ''}`} style={{ 
                                 border: `${isMobile ?  "3px solid" : "7px solid"} ${persona.color}`, // Borde con color del objeto
                                 backgroundColor: "#fff",
                                 display: "flex"

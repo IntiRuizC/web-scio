@@ -70,7 +70,6 @@ export default function ScrollAnimation() {
                     trigger: value,
                     start: "top+=20 center",
                     end: "bottom+=20 center",
-                    markers: true,
                     scrub: 1,
                 }
             });
