@@ -318,3 +318,54 @@
         margin: 5vh 7.8vw 0 0;
     }
 }
+
+/* Add these styles to your contacto.css file */
+
+.form-message {
+    margin-bottom: 2vh;
+    padding: 1.2vh 1.5vw;
+    border-radius: 4px;
+    font-family: "poppins-regular";
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-message.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #c5f3d0;
+    border-left: 4px solid #28a745;
+}
+
+.form-message.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #f8d7da;
+    border-left: 4px solid #dc3545;
+}
+
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 1000px) {
+    .form-message {
+        font-size: 1.1rem;
+        width: 38vw;
+    }
+}
+
+@media (min-width: 1900px) {
+    .form-message {
+        font-size: 1.4rem;
+    }
+}

@@ -14,6 +14,12 @@ const ContactSection = () => {
         producto: "",
     });
 
+    const [formStatus, setFormStatus] = useState({
+        submitting: false,
+        success: null,
+        error: null,
+    });
+
     const conContactRef = useRef(null); // Referencia para animar .con-contact
 
     useEffect(() => {
@@ -32,18 +38,62 @@ const ContactSection = () => {
         tl.fromTo(
             element,
             { x: "100%", opacity: 0, },
-            { 
-                x: "0%", 
+            {
+                x: "0%",
                 opacity: 1,
                 ease: "power2.inOut"
             },
         );
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Datos del formulario:", formData);
-        alert("Formulario enviado con éxito");
+        setFormStatus({ submitting: true, success: null, error: null });
+
+        try {
+            // Get API URL from environment variables or use default
+            const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
+            const response = await fetch(`${apiBaseUrl}/api/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                // Reset form on success
+                setFormData({
+                    name: "",
+                    email: "",
+                    message: "",
+                    producto: "",
+                });
+
+                setFormStatus({
+                    submitting: false,
+                    success: "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.",
+                    error: null
+                });
+
+                // Clear success message after 5 seconds
+                setTimeout(() => {
+                    setFormStatus(prev => ({ ...prev, success: null }));
+                }, 5000);
+            } else {
+                throw new Error(result.message || 'Error al enviar el formulario');
+            }
+        } catch (error) {
+            console.error("Error al enviar el formulario:", error);
+            setFormStatus({
+                submitting: false,
+                success: null,
+                error: "Hubo un problema al enviar tu mensaje. Por favor intenta de nuevo."
+            });
+        }
     };
 
     const handleChange = (e) => {
@@ -84,6 +134,19 @@ const ContactSection = () => {
                         <h3>CONTÁCTANOS</h3>
                     </div>
 
+                    {/* Form status messages */}
+                    {formStatus.success && (
+                        <div className="form-message success">
+                            {formStatus.success}
+                        </div>
+                    )}
+
+                    {formStatus.error && (
+                        <div className="form-message error">
+                            {formStatus.error}
+                        </div>
+                    )}
+
                     <form className="form-container" onSubmit={handleSubmit}>
                         {["name", "email", "producto"].map((field) => (
                             <div key={field} className="input-field">
@@ -92,12 +155,13 @@ const ContactSection = () => {
                                     name={field}
                                     placeholder={
                                         field === "name" ? "Nombre" :
-                                        field === "email" ? "Correo electrónico" :
-                                        "¿Qué producto te interesa?"
+                                            field === "email" ? "Correo electrónico" :
+                                                "¿Qué producto te interesa?"
                                     }
                                     value={formData[field]}
                                     onChange={handleChange}
-                                    required
+                                    required={field !== "producto"}
+                                    disabled={formStatus.submitting}
                                 />
                             </div>
                         ))}
@@ -110,12 +174,17 @@ const ContactSection = () => {
                                 onChange={handleChange}
                                 required
                                 rows="4"
+                                disabled={formStatus.submitting}
                             />
                         </div>
 
                         <div className="submit-container">
-                            <button type="submit" className="submit-button">
-                                <p>ENVIAR</p>
+                            <button
+                                type="submit"
+                                className="submit-button"
+                                disabled={formStatus.submitting}
+                            >
+                                <p>{formStatus.submitting ? "ENVIANDO..." : "ENVIAR"}</p>
                             </button>
                         </div>
                     </form>
