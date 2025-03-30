@@ -45,3 +45,4 @@ dist-ssr
 
 package-lock.json
 .env
+.env.staging

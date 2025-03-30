@@ -3,23 +3,36 @@ stages:
   - deploy
 
 variables:
-  DOCKER_IMAGE_NAME: web-scio
+  FRONTEND_IMAGE_NAME: web-scio-frontend
+  BACKEND_IMAGE_NAME: web-scio-backend
   DOCKER_IMAGE_TAG: $CI_COMMIT_SHORT_SHA
-  CONTAINER_NAME: web-scio
 
 # Use Docker in Docker service
 services:
   - docker:dind
 
-build:
+build_frontend:
   stage: build
   image: docker:stable
   script:
-    - docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG .
-    - docker save $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG > image.tar
+    - cd frontend
+    - docker build -t $FRONTEND_IMAGE_NAME:$DOCKER_IMAGE_TAG .
+    - docker save $FRONTEND_IMAGE_NAME:$DOCKER_IMAGE_TAG > ../frontend-image.tar
   artifacts:
     paths:
-      - image.tar
+      - frontend-image.tar
+    expire_in: 1 hour
+
+build_backend:
+  stage: build
+  image: docker:stable
+  script:
+    - cd backend
+    - docker build -t $BACKEND_IMAGE_NAME:$DOCKER_IMAGE_TAG .
+    - docker save $BACKEND_IMAGE_NAME:$DOCKER_IMAGE_TAG > ../backend-image.tar
+  artifacts:
+    paths:
+      - backend-image.tar
     expire_in: 1 hour
 
 deploy_staging:
@@ -28,18 +41,53 @@ deploy_staging:
   only:
     - main  # Only deploy when changes are pushed to main branch
   script:
-    - docker load < image.tar
-    # Stop and remove existing container if it exists
-    - docker stop $CONTAINER_NAME || true
-    - docker rm $CONTAINER_NAME || true
-    # Start new container with the built image
+    # Load the Docker images
+    - docker load < frontend-image.tar
+    - docker load < backend-image.tar
+    
+    # Stop and remove existing containers if they exist
+    - docker stop web-scio-frontend || true
+    - docker rm web-scio-frontend || true
+    - docker stop web-scio-backend || true
+    - docker rm web-scio-backend || true
+    
+    # Create backend .env file from CI/CD variables
+    - |
+      cat > backend/.env << EOF
+      PORT=${PORT}
+      NODE_ENV=${NODE_ENV}
+      ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+      MAIL_HOST=${MAIL_HOST}
+      MAIL_PORT=${MAIL_PORT}
+      MAIL_SECURE=${MAIL_SECURE}
+      MAIL_USER=${MAIL_USER}
+      MAIL_PASSWORD=${MAIL_PASSWORD}
+      MAIL_FROM=${MAIL_FROM}
+      MAIL_TO=${MAIL_TO}
+      COMPANY_NAME=Corporación Scio
+      SEND_CONFIRMATION=${SEND_CONFIRMATION}
+      EOF
+    
+    # Start backend container
     - >
       docker run -d
-      --name $CONTAINER_NAME
-      -p 5173:5173
-      -v $(pwd)/src:/app/src
-      -v /app/node_modules
+      --name web-scio-backend
+      -p 3001:3001
+      --env-file backend/.env
       --restart unless-stopped
-      $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
+      $BACKEND_IMAGE_NAME:$DOCKER_IMAGE_TAG
+      
+    # Start frontend container
+    - >
+      docker run -d
+      --name web-scio-frontend
+      -p 5173:5173
+      -e VITE_API_URL=http://167.86.75.57:3001
+      --restart unless-stopped
+      $FRONTEND_IMAGE_NAME:$DOCKER_IMAGE_TAG
+      
+    # Clean up sensitive files
+    - rm backend/.env
+      
   tags:
     - shell  # Make sure this runner has shell executor

@@ -4,6 +4,4 @@ build
 .dockerignore
 Dockerfile
 .git
-../.gitignore
 README.md
-../docker-compose-dev.yml

@@ -2,9 +2,17 @@ FROM node:22.4.0-alpine3.20
 
 WORKDIR /app
 
+# Copy package files
 COPY package*.json ./
-RUN npm install
-VOLUME /app/node_modules
+
+# Install dependencies
+RUN npm install --production
+
+# Copy app source code
+COPY . .
+
+# Expose API port
 EXPOSE 3001
 
-CMD ["npm", "run", "dev"]
+# Start the server
+CMD ["npm", "start"]

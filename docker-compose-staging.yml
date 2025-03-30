@@ -1,0 +1,30 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "5174:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://167.86.75.57:3001
+    restart: unless-stopped
+    networks:
+      - web_network
+    
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./backend/.env.staging
+    restart: unless-stopped
+    networks:
+      - web_network
+
+networks:
+  web_network:
+    driver: bridge

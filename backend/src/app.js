@@ -9,10 +9,10 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production'
-        ? process.env.ALLOWED_ORIGINS?.split(',') || 'https://yourcompanywebsite.com'
-        : ['http://localhost:5173', 'http://127.0.0.1:5173']
-}));
+    origin: process.env.NODE_ENV === 'development'
+      ? ['http://localhost:5173', 'http://127.0.0.1:5173'] 
+      : process.env.ALLOWED_ORIGINS?.split(',') || 'https://sciocorp.org'
+  }));
 
 // Parse request bodies
 app.use(bodyParser.json());
