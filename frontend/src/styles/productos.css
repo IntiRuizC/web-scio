@@ -1,8 +1,8 @@
 .productos-container {
     overflow: hidden;
-    height: 100vh;
+    height: 150vh;
     position: relative;
-    background-color: #036E7C;
+    background-color: white;
 }
 
 .productos {

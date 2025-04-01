@@ -287,7 +287,7 @@
 
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1700px) {
 
     .form-section,
     .input-field input,
@@ -364,7 +364,7 @@
     }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1700px) {
     .form-message {
         font-size: 1.4rem;
     }

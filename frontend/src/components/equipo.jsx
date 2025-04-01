@@ -100,7 +100,7 @@ const Equipo = () => {
             nombre: "María Castro",
             correo: "acastro@sciocorp.org",
             dependencia: "Innovación y desarrollo",
-            cargo: "lkdmkfñsmñfa",
+            cargo: "Especialista en gestión editorial",
             area: "Comunicación",
             color: "#F29C37",
             imagen: alexandra

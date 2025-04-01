@@ -55,11 +55,6 @@
     .cliente {
         font-size: 5rem;
     }
-
-    .top-client {
-        height: 10vh;
-    }
-
 }
 
 
@@ -71,16 +66,10 @@
 }
 
 @media (min-width: 1200px) {
-    .top-client {
-        height: 13vh;
-    }
+
 }
 
-@media (min-width: 1900px) {
-    .top-client {
-        height: 15vh;
-    }
-
+@media (min-width: 1700px) {
     .cliente {
         font-size: 6.5rem;
     }
