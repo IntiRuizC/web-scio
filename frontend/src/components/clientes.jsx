@@ -93,7 +93,6 @@ const ListaUniversidades = () => {
 
     return (
         <div ref={containerRef} className="clientes-container" id="clientes">
-            <div className="top-client"></div>
             <div ref={wrapperRef} className="clientes-wrapper">
                 {[...universidades, ...universidades].map((text, index) => (
                     <h2
