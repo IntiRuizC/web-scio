@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Persona from "./persona.jsx";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import "../styles/equipo.css";
 import adrianaxImg from "../fotos/Adriana_Silva.jpg";
 import alexImg from "../fotos/Alex_González.jpg";
@@ -13,6 +14,19 @@ import alexandra from "../fotos/Alexandra_Castro.jpg"
 const Equipo = () => {
     const [personaSeleccionada, setPersonaSeleccionada] = useState(null);
     const isMobile = window.innerWidth < 1100;
+
+    useEffect(() => {
+        ScrollTrigger.create({
+            trigger: "#equipo",
+            start: "top-=5% top",
+            end: "bottom-=5%",
+            markers: true,
+            toggleClass:
+                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-team"], className: "in-equipo" },
+
+        });
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
 
     const equipo = [
         {
@@ -43,7 +57,7 @@ const Equipo = () => {
             cargo: "Científico de datos",
             area: "I+D+I",
             color: "#ce3c15",
-            imagen: jesusImg 
+            imagen: jesusImg
         },
         {
             id: 4,
@@ -123,8 +137,8 @@ const Equipo = () => {
                     {equipo.map((persona) => (
                         <div
                             key={persona.id}
-                            className={`burbuja burbuja${persona.id} ${personaSeleccionada?.id === persona.id ? 'selected' : ''}`} style={{ 
-                                border: `${isMobile ?  "3px solid" : "7px solid"} ${persona.color}`, // Borde con color del objeto
+                            className={`burbuja burbuja${persona.id} ${personaSeleccionada?.id === persona.id ? 'selected' : ''}`} style={{
+                                border: `${isMobile ? "3px solid" : "7px solid"} ${persona.color}`, // Borde con color del objeto
                                 backgroundColor: "#fff",
                                 display: "flex"
                             }}
@@ -138,7 +152,7 @@ const Equipo = () => {
 
             <div className="columna-detalle">
                 {personaSeleccionada ? (
-                    <Persona 
+                    <Persona
                         nombre={personaSeleccionada.nombre}
                         cargo={personaSeleccionada.cargo}
                         correo={personaSeleccionada.correo}

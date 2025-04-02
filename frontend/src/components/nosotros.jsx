@@ -10,6 +10,17 @@ export default function ScrollAnimation() {
     const valuesRef = useRef(null);
     const lineRef = useRef(null);
 
+    useEffect(() => {
+        ScrollTrigger.create({
+            trigger: "#nosotros",
+            start: "top-=5% top",
+            end: "bottom-=5%",
+            toggleClass:
+                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-us"], className: "in-nosotros" },
+        });
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
+
     // Animación principal del texto
     useEffect(() => {
         const masterTL = gsap.timeline({

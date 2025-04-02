@@ -23,6 +23,17 @@ const ContactSection = () => {
     const conContactRef = useRef(null); // Referencia para animar .con-contact
 
     useEffect(() => {
+        ScrollTrigger.create({
+            trigger: "#contacto",
+            start: "top-=5% top",
+            end: "bottom-=5%",
+            toggleClass:
+                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-conta"], className: "in-contacto" },
+        });
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
+
+    useEffect(() => {
         const element = conContactRef.current;
 
         const tl = gsap.timeline({

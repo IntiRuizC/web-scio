@@ -1,6 +1,7 @@
 import "../styles/clientes.css";
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const ListaUniversidades = () => {
     const containerRef = useRef(null);
@@ -32,11 +33,22 @@ const ListaUniversidades = () => {
     ]);
 
     useEffect(() => {
+        ScrollTrigger.create({
+            trigger: "#clientes",
+            start: "top-=5% top",
+            end: "bottom-=5%",
+            toggleClass:
+                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes" },
+        });
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
+
+    useEffect(() => {
         const container = containerRef.current;
         const wrapper = wrapperRef.current;
         const items = itemsRef.current;
         let animationFrameId;
-        
+
 
         // 1. Scroll infinito con GSAP
         const contentHeight = wrapper.scrollHeight / 2;

@@ -16,104 +16,53 @@ const NavBar = () => {
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-home" }
         });
-
-        ScrollTrigger.create({
-            trigger: "#productos",
-            start: "top+=250vh top",
-            end: "+=1100vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-productos" },
-        });
-
-        ScrollTrigger.create({
-            trigger: "#clientes",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes" },
-            snap: {
-                snapTo: ".clientes-wrapper", // Hace snap a cada <section> dentro de #productos
-                duration: 0.5, // Duración de la animación del snap
-                ease: "power1.inOut" // Suavidad en el snapping
-            }
-        });
-
-        ScrollTrigger.create({
-            trigger: "#nosotros",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-us"], className: "in-nosotros" },
-        });
-
-        ScrollTrigger.create({
-            trigger: "#equipo",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-team"], className: "in-equipo" },
-
-        });
-
-        ScrollTrigger.create({
-            trigger: "#contacto",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-conta"], className: "in-contacto" },
-
-        });
-
-
-
-
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
-    useEffect(() => {
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=825vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-conta"], className: "nav-black" },
-        });
+    // useEffect(() => {
+    //     ScrollTrigger.create({
+    //         trigger: ".producto-1",
+    //         start: "top+=825vh top",
+    //         end: "top+=2500vh top",
+    //         toggleClass:
+    //             { targets: [".nav-conta"], className: "nav-black" },
+    //     });
 
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            scrub: 2,
-            start: "top+=900vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-team"], className: "nav-black" },
-        });
+    //     ScrollTrigger.create({
+    //         trigger: ".producto-1",
+    //         scrub: 2,
+    //         start: "top+=900vh top",
+    //         end: "top+=2500vh top",
+    //         toggleClass:
+    //             { targets: [".nav-team"], className: "nav-black" },
+    //     });
 
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=1000vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-us"], className: "nav-black" },
-        });
+    //     ScrollTrigger.create({
+    //         trigger: ".producto-1",
+    //         start: "top+=1000vh top",
+    //         end: "top+=2500vh top",
+    //         toggleClass:
+    //             { targets: [".nav-us"], className: "nav-black" },
+    //     });
 
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=1100vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-clien"], className: "nav-black" },
-        })
+    //     ScrollTrigger.create({
+    //         trigger: ".producto-1",
+    //         start: "top+=1100vh top",
+    //         end: "top+=2500vh top",
+    //         toggleClass:
+    //             { targets: [".nav-clien"], className: "nav-black" },
+    //     })
         
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=1300vh top",
-            end: "top+=2400vh top",
-            toggleClass:
-            { targets: [".nav-prod"], className: "prod-navpos" }
-        });;
+    //     ScrollTrigger.create({
+    //         trigger: ".producto-1",
+    //         start: "top+=1300vh top",
+    //         end: "top+=2400vh top",
+    //         toggleClass:
+    //         { targets: [".nav-prod"], className: "prod-navpos" }
+    //     });;
 
-        return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }, []);
+    //     return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    // }, []);
 
 
     return (
