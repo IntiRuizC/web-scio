@@ -20,7 +20,6 @@ const Equipo = () => {
             trigger: "#equipo",
             start: "top-=5% top",
             end: "bottom-=5%",
-            markers: true,
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-team"], className: "in-equipo" },
 
