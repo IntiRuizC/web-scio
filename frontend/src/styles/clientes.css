@@ -9,7 +9,7 @@
 .top-client {
     position: absolute; /* Cambiamos de sticky a absolute */
     top: 0;
-    height: 8vh;
+    height: 13vh;
     background: white;
     width: 100%;
     z-index: 2;

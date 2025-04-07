@@ -144,6 +144,9 @@ a {
 .logoblanco {
     cursor: pointer;
 }
+.logoblanco {
+    opacity: 0;
+}
 
 .menu {
     background-color: white;

@@ -26,7 +26,8 @@ const ContactSection = () => {
         ScrollTrigger.create({
             trigger: "#contacto",
             start: "top-=5% top",
-            end: "bottom-=5%",
+            end: "bottom+=200",
+            markers: true,
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-conta"], className: "in-contacto" },
         });
@@ -40,7 +41,7 @@ const ContactSection = () => {
             scrollTrigger: {
                 trigger: ".contacto-container",
                 start: "top top",
-                end: "+=600 ",
+                end: "+=200 ",
                 scrub: 1,
                 pin: true,
             }

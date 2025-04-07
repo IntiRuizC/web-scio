@@ -163,7 +163,7 @@ const ProductosScroll = () => {
         ScrollTrigger.create({
             trigger: ".producto-1",
             start: "center+=30% top",
-            end: "bottom+=90%",
+            end: "bottom+=85%",
             toggleClass:
             { targets: [".nav-prod"], className: "prod-navpos" }
         });;

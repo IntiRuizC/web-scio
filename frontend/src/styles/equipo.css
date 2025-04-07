@@ -266,8 +266,9 @@
 
     .columna-detalle {
         position: absolute;
-        top: 41%;
+        top: 50%;
         left: 2%;
+        transform: translate(0px, -50%);
         height: 38vh;
     }
 
