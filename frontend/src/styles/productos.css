@@ -1,6 +1,6 @@
 .productos-container {
     overflow: hidden;
-    height: 150vh;
+    height: 100vh;
     position: relative;
     background-color: white;
 }
@@ -18,7 +18,7 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     font-size: 1.5rem;
 }
 
@@ -46,7 +46,7 @@
 /* Make images fill their containers while maintaining aspect ratio */
 .img-pro1, .img-pro2 {
     max-width: 100%;
-    max-height: 100vh;
+    max-height: 90vh;
     width: auto;
     height: auto;
     object-fit: contain;

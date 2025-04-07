@@ -59,6 +59,17 @@ const ProductosScroll = () => {
     };
 
     useEffect(() => {
+        ScrollTrigger.create({
+                    trigger: ".productos",
+                    start: "top-=5% top",
+                    end: "bottom-=5%",
+                    toggleClass:
+                        { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-productos" },
+                });
+    return () => ScrollTrigger.getAll().forEach(t => t.kill());
+        }, []);
+
+    useEffect(() => {
         // Set initial images
         const { selectedProduct, selectedPortada } = getAppropriateImages();
         setProductImage(selectedProduct);
@@ -112,6 +123,52 @@ const ProductosScroll = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+    }, []);
+
+    useEffect(() => {
+        ScrollTrigger.create({
+            trigger: ".producto-1",
+            start: "center+=10% top",
+            end: "bottom+=90%",
+            matkers: true,
+            toggleClass:
+                { targets: [".nav-conta"], className: "nav-black" },
+        });
+
+        ScrollTrigger.create({
+            trigger: ".producto-1",
+            scrub: 2,
+            start: "center+=20% top",
+            end: "bottom+=90%",
+            toggleClass:
+                { targets: [".nav-team"], className: "nav-black" },
+        });
+
+        ScrollTrigger.create({
+            trigger: ".producto-1",
+            start: "center+=25% top",
+            end: "bottom+=90%",
+            toggleClass:
+                { targets: [".nav-us"], className: "nav-black" },
+        });
+
+        ScrollTrigger.create({
+            trigger: ".producto-1",
+            start: "center+=30% top",
+            end: "bottom+=90%",
+            toggleClass:
+                { targets: [".nav-clien"], className: "nav-black" },
+        })
+        
+        ScrollTrigger.create({
+            trigger: ".producto-1",
+            start: "center+=30% top",
+            end: "bottom+=90%",
+            toggleClass:
+            { targets: [".nav-prod"], className: "prod-navpos" }
+        });;
+
+        return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }, []);
 
     return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoblanco from "../logos/Logo_SCIO_Letras_Blancas.svg";
@@ -8,6 +8,26 @@ import "../styles/navbar.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const NavBar = () => {
+    const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar si el menú está abierto o cerrado
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Estado para el ancho de la ventana
+
+    // Detectar cambios en el tamaño de la ventana
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth); // Actualiza el estado con el nuevo ancho de la ventana
+        };
+
+        window.addEventListener('resize', handleResize); // Escuchar los cambios de tamaño de ventana
+        return () => {
+            window.removeEventListener('resize', handleResize); // Limpiar el evento cuando el componente se desmonte
+        };
+    }, []);
+
+    // Función para alternar el estado del menú
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     useEffect(() => {
         ScrollTrigger.create({
             trigger: "#inicio",
@@ -16,105 +36,8 @@ const NavBar = () => {
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-home" }
         });
-
-        ScrollTrigger.create({
-            trigger: "#productos",
-            start: "top+=250vh top",
-            end: "+=1100vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-productos" },
-        });
-
-        ScrollTrigger.create({
-            trigger: "#clientes",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes" },
-            snap: {
-                snapTo: ".clientes-wrapper", // Hace snap a cada <section> dentro de #productos
-                duration: 0.5, // Duración de la animación del snap
-                ease: "power1.inOut" // Suavidad en el snapping
-            }
-        });
-
-        ScrollTrigger.create({
-            trigger: "#nosotros",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-us"], className: "in-nosotros" },
-        });
-
-        ScrollTrigger.create({
-            trigger: "#equipo",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-team"], className: "in-equipo" },
-
-        });
-
-        ScrollTrigger.create({
-            trigger: "#contacto",
-            start: "top+=1550vh top+=50vh",
-            end: "bottom+=1500vh",
-            toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-conta"], className: "in-contacto" },
-
-        });
-
-
-
-
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
-
-    useEffect(() => {
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=825vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-conta"], className: "nav-black" },
-        });
-
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            scrub: 2,
-            start: "top+=900vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-team"], className: "nav-black" },
-        });
-
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=1000vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-us"], className: "nav-black" },
-        });
-
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=1100vh top",
-            end: "top+=2500vh top",
-            toggleClass:
-                { targets: [".nav-clien"], className: "nav-black" },
-        })
-        
-        ScrollTrigger.create({
-            trigger: ".producto-1",
-            start: "top+=1300vh top",
-            end: "top+=2400vh top",
-            toggleClass:
-            { targets: [".nav-prod"], className: "prod-navpos" }
-        });;
-
-        return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }, []);
-
 
     return (
         <div className="navbar">
@@ -123,17 +46,25 @@ const NavBar = () => {
                 <img className="logocolor" src={logocolor} alt="Scio/color" />
             </div>
 
-            <div className="menu">
-                <h4 id="menu-toggle">MENÚ</h4>
-                <div className="list">
-                    <ul className='ulvert'>
-                        <li> <a href="#productos" className='nav-prod' > PRODUCTOS  </a> </li>
-                        <li> <a href="#clientes" className='nav-clien' >  CLIENTES </a> </li>
-                        <li> <a href="#nosotros" className='nav-us' >  NOSOTROS </a> </li>
-                        <li> <a href="#equipo" className='nav-team' >  EQUIPO </a> </li>
-                        <li> <a href="#contacto" className='nav-conta' >  CONTACTO </a> </li>
+            <div className={`menu ${menuOpen ? 'open' : ''}`}>
+                {/* Solo aplicar el evento toggle si el ancho de la ventana es menor a 1000px */}
+                {windowWidth < 1000 && (
+                    <h4 id="menu-toggle" onClick={toggleMenu}>MENÚ</h4> 
+                )}
+                <div className={`list ${menuOpen ? 'open' : ''}`}>
+                    <ul className={`ulvert ${menuOpen ? 'open' : ''}`}>
+                        <li> <a href="#productos" className='nav-prod'
+                        onClick={windowWidth < 1000 ? toggleMenu : null}> PRODUCTOS  </a> </li>
+                        <li> <a href="#clientes" className='nav-clien'
+                        onClick={windowWidth < 1000 ? toggleMenu : null}>  CLIENTES </a> </li>
+                        <li> <a href="#nosotros" className='nav-us'
+                        onClick={windowWidth < 1000 ? toggleMenu : null}>  NOSOTROS </a> </li>
+                        <li> <a href="#equipo" className='nav-team' 
+                        onClick={windowWidth < 1000 ? toggleMenu : null}>  EQUIPO </a> </li>
+                        <li> <a href="#contacto" className='nav-conta'
+                        onClick={windowWidth < 1000 ? toggleMenu : null}>  CONTACTO </a> </li>
                     </ul>
-                    <ul className='ulhor'>
+                    <ul className={`ulhor ${menuOpen ? 'open' : ''}`}>
                         <li>VISUALIZACIONES</li>
                         <li>BLOG</li>
                         <li>PORTAFOLIO</li>
