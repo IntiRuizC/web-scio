@@ -27,7 +27,6 @@ const ContactSection = () => {
             trigger: "#contacto",
             start: "top-=5% top",
             end: "bottom+=200",
-            markers: true,
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-conta"], className: "in-contacto" },
         });

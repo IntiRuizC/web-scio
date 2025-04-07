@@ -49,7 +49,6 @@ const ListaUniversidades = () => {
             trigger: "#clientes",
             start: "top-=5% top",
             end: "bottom-=8%",
-            markers: true,
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes" },
         });
