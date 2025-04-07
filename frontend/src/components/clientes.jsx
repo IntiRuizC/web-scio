@@ -48,7 +48,8 @@ const ListaUniversidades = () => {
         ScrollTrigger.create({
             trigger: "#clientes",
             start: "top-=5% top",
-            end: "bottom-=5%",
+            end: "bottom-=8%",
+            markers: true,
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes" },
         });
@@ -122,6 +123,7 @@ const ListaUniversidades = () => {
 
     return (
         <div ref={containerRef} className="clientes-container" id="clientes">
+            <div className="top-client"></div>
             <div ref={wrapperRef} className="clientes-wrapper">
                 {[...universidades, ...universidades].map((text, index) => (
                     <h2
