@@ -26,11 +26,9 @@ export default function ScrollAnimation() {
         const masterTL = gsap.timeline({
             scrollTrigger: {
                 trigger: ".text-section",
-                start: "top top",
-                end: "+=100", // Altura completa de la sección
+                start: "top center-=20%",
+                end: "center+=20% bottom", // Altura completa de la sección
                 scrub: 2,
-                pin: true,
-                anticipatePin: 1,
             }
         });
 

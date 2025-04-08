@@ -39,12 +39,12 @@ const ContactSection = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".contacto-container",
-                start: "top top",
-                end: "+=200 ",
+                start: "top center+=10%",
+                end: "top+=10% ",
                 scrub: 1,
-                pin: true,
             }
         })
+
 
         tl.fromTo(
             element,
@@ -54,7 +54,11 @@ const ContactSection = () => {
                 opacity: 1,
                 ease: "power2.inOut"
             },
-        );
+        )
+        .fromTo("body",
+            {backgroundColor: "#d03e16"},
+            {backgroundColor: "#036e7c"}
+        );;
     }, []);
 
     const handleSubmit = async (e) => {

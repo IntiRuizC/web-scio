@@ -117,6 +117,10 @@ const ProductosScroll = () => {
             .fromTo(".img-pro1",
                 { y: -150, opacity: 0 },
                 { y: -10, opacity: 1, duration: 0.3 }
+            )
+            .fromTo("body",
+                {backgroundColor: "#d03e16"},
+                {backgroundColor: "white"}
             );
 
         // Cleanup event listener on component unmount
