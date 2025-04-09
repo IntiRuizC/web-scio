@@ -13,6 +13,7 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    strictPort: true
+    strictPort: true,
+    allowedHosts: ['sciocorp.org', 'www.sciocorp.org', 'localhost', '167.86.75.57']
   },
 })
