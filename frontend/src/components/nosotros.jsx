@@ -113,11 +113,11 @@ export default function ScrollAnimation() {
                 <p>
                     En SCIO convertimos <span>datos</span> en historias visuales que potencian decisiones estratégicas.
                     Nos especializamos en organizar, normalizar, analizar y<span> visualizar </span>información para maximizar
-                    el valor de los <span>datos</span>. Nuestra fortaleza radica en combinar análisis preciso con diseño intuitivo.
+                    el valor de los datos. Nuestra fortaleza radica en combinar análisis preciso con diseño intuitivo.
                     Colaboramos con universidades, empresas y entidades públicas, ofreciendo soluciones personalizadas
-                    que abarcan desde catalogación de <span>datos</span> hasta visualizaciones interactivas y recursos <span> pedagógicos</span>.
+                    que abarcan desde catalogación de datos hasta visualizaciones interactivas y recursos <span> pedagógicos</span>.
                     Cada proyecto busca democratizar el conocimiento, transformando información compleja en herramientas
-                    accesibles. Porque los <span>datos</span> no son un fin, sino un punto de partida para hacer<span> preguntas </span>más idóneas
+                    accesibles. Porque los datos no son un fin, sino un punto de partida para hacer<span> preguntas </span>más idóneas
                     y construir respuestas más audaces
                 </p>
             </div>
