@@ -225,6 +225,10 @@
     top: 57%;
 }
 
+.linea-equi {
+    display: none;
+}
+
 @media (min-width: 1000px) {
     .linea-equi {
         grid-row: 2;
@@ -404,13 +408,15 @@
         height: 100%;
         align-self: center;
         display: flex;
-        justify-content: space-evenly;
+        gap: 2vh;
         flex-direction: column;
+        padding-top: 6vh;
     }
 
     .detalle p{
         width: 30vh;
         font-size: 1.3rem;
+        margin: 0;
     }
 
     .info-persona .cargo {

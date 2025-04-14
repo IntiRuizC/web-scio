@@ -28,6 +28,7 @@
 
 .prod-navpos {
     color: #f29a36 ;
+    font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
@@ -57,6 +58,7 @@
 
 .nav-prod.in-productos {
     color: #f29a36 ;
+    font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
@@ -68,6 +70,7 @@
 
 .nav-clien.in-clientes {
     color: #f29a36 ;
+    font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
@@ -88,6 +91,7 @@
 }
 .nav-us.in-nosotros {
     color:  #036E7C;
+    font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
@@ -101,6 +105,7 @@
 
 .nav-team.in-equipo {
     color:  #f29a36 ;
+    font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
@@ -114,6 +119,7 @@
 
 .nav-conta.in-contacto {
     color:  #f29a36 ;
+    font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
