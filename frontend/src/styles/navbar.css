@@ -311,4 +311,12 @@ a {
     .ulvert {
         font-size: 1.2rem;
     }
+
+    .nav-clien.in-clientes,
+    .nav-conta.in-contacto,
+    .nav-us.in-nosotros,
+    .nav-team.in-equipo,
+    .nav-conta.in-contacto {
+        font-size: 1.6rem;
+    }
 }
