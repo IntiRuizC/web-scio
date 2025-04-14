@@ -110,7 +110,7 @@ const Equipo = () => {
         },
         {
             id: 9,
-            nombre: "María Castro",
+            nombre: "Alexandra Castro",
             correo: "acastro@sciocorp.org",
             dependencia: "Innovación y desarrollo",
             cargo: "Especialista en gestión editorial",
