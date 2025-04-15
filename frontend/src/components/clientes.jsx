@@ -50,7 +50,8 @@ const ListaUniversidades = () => {
             start: "top-=5% top",
             end: "bottom-=8%",
             toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-clien"], className: "in-clientes" },
+                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor",
+                    ".nav-clien", "#menu-clie", "#menu-toggle"], className: "in-clientes" },
         });
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);

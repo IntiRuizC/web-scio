@@ -13,10 +13,11 @@ export default function ScrollAnimation() {
     useEffect(() => {
         ScrollTrigger.create({
             trigger: "#nosotros",
-            start: "top-=5% top",
+            start: "top-=1% top",
             end: "bottom-=5%",
             toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-us"], className: "in-nosotros" },
+                { targets: [".navbar", ".ulvert",".logoblanco",
+                    ".logocolor", ".nav-us", "#menu-nos", "#menu-toggle"], className: "in-nosotros" },
         });
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);

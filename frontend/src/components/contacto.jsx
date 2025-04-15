@@ -28,7 +28,8 @@ const ContactSection = () => {
             start: "top-=5% top",
             end: "bottom+=200",
             toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-conta"], className: "in-contacto" },
+                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor",
+                    ".nav-conta", "#menu-cont", "#menu-toggle"], className: "in-contacto" },
         });
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);

@@ -21,7 +21,8 @@ const Equipo = () => {
             start: "top-=5% top",
             end: "bottom-=5%",
             toggleClass:
-                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-team"], className: "in-equipo" },
+                { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor",
+                    ".nav-team", "#menu-equi", "#menu-toggle"], className: "in-equipo" },
 
         });
         return () => ScrollTrigger.getAll().forEach(t => t.kill());

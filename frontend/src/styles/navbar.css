@@ -13,7 +13,8 @@
 
 
 
-.navbar.in-clientes, .navbar.in-equipo {
+.navbar.in-clientes,
+.navbar.in-equipo {
     background-color: white;
 }
 
@@ -27,7 +28,7 @@
 }
 
 .prod-navpos {
-    color: #f29a36 ;
+    color: #f29a36;
     font-size: 1.2rem;
     font-family: "urbanist-black";
 }
@@ -35,29 +36,34 @@
 .ulvert {
     color: #333333;
 }
+
 .logoblanco.in-home {
-    opacity: 1 ;
+    opacity: 1;
 }
+
 .logocolor.in-home {
-    opacity: 0 ;
+    opacity: 0;
 }
 
 
-.navbar.in-home .ulvert, .navbar.in-home .ulhor, .navbar.in-nosotros .ulvert, .navbar.in-nosotros .ulhor {
+.navbar.in-home .ulvert,
+.navbar.in-home .ulhor,
+.navbar.in-nosotros .ulvert,
+.navbar.in-nosotros .ulhor {
     color: #ffffff;
 }
 
 
 .logoblanco.in-productos {
-    opacity: 1 ;
+    opacity: 1;
 }
 
 .logocolor.in-productos {
-    opacity: 0 ;
+    opacity: 0;
 }
 
 .nav-prod.in-productos {
-    color: #f29a36 ;
+    color: #f29a36;
     font-size: 1.2rem;
     font-family: "urbanist-black";
 }
@@ -69,7 +75,7 @@
 
 
 .nav-clien.in-clientes {
-    color: #f29a36 ;
+    color: #f29a36;
     font-size: 1.2rem;
     font-family: "urbanist-black";
 }
@@ -82,53 +88,54 @@
 }
 
 .logoblanco.navbar.in-clientes {
-    opacity: 0 ;
+    opacity: 0;
 }
 
 
 .navbar.in-clientes .logocolor {
     opacity: 1;
 }
+
 .nav-us.in-nosotros {
-    color:  #036E7C;
+    color: #036E7C;
     font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
 .logoblanco.in-nosotros {
-    opacity: 1 ;
+    opacity: 1;
 }
 
 .logocolor.in-nosotros {
-    opacity: 0 ;
+    opacity: 0;
 }
 
 .nav-team.in-equipo {
-    color:  #f29a36 ;
+    color: #f29a36;
     font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
 .logoblanco.in-equipo {
-    opacity: 0 ;
+    opacity: 0;
 }
 
 .logocolor.in-equipo {
-    opacity: 1 ;
+    opacity: 1;
 }
 
 .nav-conta.in-contacto {
-    color:  #f29a36 ;
+    color: #f29a36;
     font-size: 1.2rem;
     font-family: "urbanist-black";
 }
 
 .logoblanco.in-contacto {
-    opacity: 1 ;
+    opacity: 1;
 }
 
 .logocolor.in-contacto {
-    opacity: 0 ;
+    opacity: 0;
 }
 
 .navbar.in-contacto .ulvert,
@@ -150,6 +157,7 @@ a {
 .logoblanco {
     cursor: pointer;
 }
+
 .logoblanco {
     opacity: 0;
 }
@@ -161,7 +169,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 13vw;
+    padding: 0 1vh;
     font-size: 0.75rem;
     margin-top: 1%;
     margin-right: 4vw;
@@ -187,16 +195,66 @@ a {
     letter-spacing: 0.6px;
 }
 
+#menu-prod,
+#menu-clie,
+#menu-nos,
+#menu-equi,
+#menu-cont {
+    display: none;
+}
+
+#menu-nos.in-nosotros {
+    display: block;
+}
+#menu-toggle.in-nosotros {
+    display: none;
+}
+
+#menu-prod.in-productos {
+    display: block;
+}
+#menu-toggle.in-productos {
+    display: none;
+}
+#menu-prod.nav-black {
+    display: block;
+}
+#menu-toggle.nav-black {
+    display: none;
+}
+
+#menu-equi.in-equipo {
+    display: block;
+}
+#menu-toggle.in-equipo {
+    display: none;
+}
+#menu-clie.in-clientes {
+    display: block;
+}
+#menu-toggle.in-clientes {
+    display: none;
+}
+#menu-cont.in-contacto {
+    display: block;
+}
+#menu-toggle.in-contacto {
+    display: none;
+}
+
+
 .list {
     display: none;
 }
 
 .list.open {
-    display: block; /* Mostrar el menú cuando está abierto */
+    display: block;
+    /* Mostrar el menú cuando está abierto */
 }
 
 .ulhor.open {
-    display: none; /* Mostrar el menú cuando está abierto */
+    display: none;
+    /* Mostrar el menú cuando está abierto */
 }
 
 .logocolor {
@@ -204,8 +262,10 @@ a {
 }
 
 .navbar .menu .list ul li.hovered {
-    background-color: #f0a500; /* color de fondo cuando se haga hover */
-    color: white; /* color del texto cuando esté seleccionado */
+    background-color: #f0a500;
+    /* color de fondo cuando se haga hover */
+    color: white;
+    /* color del texto cuando esté seleccionado */
 }
 
 @media (min-width: 750px) {
@@ -234,9 +294,17 @@ a {
         transform: translateX(-83vw);
     }
 
-    
+
 
     #menu-toggle {
+        display: none;
+    }
+
+    #menu-prod,
+    #menu-clie,
+    #menu-nos,
+    #menu-equi,
+    #menu-cont {
         display: none;
     }
 
@@ -253,7 +321,7 @@ a {
         text-decoration: none;
         font-size: 0.8rem;
         gap: 3vh;
-        
+
     }
 
     .ulvert li,
@@ -290,7 +358,9 @@ a {
 }
 
 @media (min-width: 1700px) {
-    .ulvert, .ulhor {
+
+    .ulvert,
+    .ulhor {
         gap: 4vh;
     }
 

@@ -64,7 +64,8 @@ const ProductosScroll = () => {
                     start: "top-=5% top",
                     end: "bottom-=5%",
                     toggleClass:
-                        { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod"], className: "in-productos" },
+                        { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor",
+                            ".nav-prod", "#menu-prod", "#menu-toggle"], className: "in-productos" },
                 });
     return () => ScrollTrigger.getAll().forEach(t => t.kill());
         }, []);
@@ -136,7 +137,7 @@ const ProductosScroll = () => {
             end: "bottom+=90%",
             matkers: true,
             toggleClass:
-                { targets: [".nav-conta"], className: "nav-black" },
+                { targets: [".nav-conta", "#menu-prod", "#menu-toggle"], className: "nav-black" },
         });
 
         ScrollTrigger.create({
