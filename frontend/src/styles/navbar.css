@@ -291,7 +291,7 @@ a {
     .menu {
         background-color: #ce3d1500;
         color: #333333;
-        transform: translateX(-83vw);
+        transform: translateX(-95vw);
     }
 
 
@@ -386,7 +386,9 @@ a {
     .nav-conta.in-contacto,
     .nav-us.in-nosotros,
     .nav-team.in-equipo,
-    .nav-conta.in-contacto {
+    .nav-conta.in-contacto,
+    .nav-prod.in-productos,
+    .nav-prod.prod-navpos {
         font-size: 1.6rem;
     }
 }

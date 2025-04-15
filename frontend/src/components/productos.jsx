@@ -106,7 +106,7 @@ const ProductosScroll = () => {
             scrollTrigger: {
                 trigger: ".productos",
                 start: "top top",
-                end: "bottom top",
+                end: "bottom+=50% center",
                 scrub: 2,
             },
         });
