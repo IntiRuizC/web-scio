@@ -33,8 +33,9 @@ const Inicio = () => {
             scrollTrigger: {
                 trigger: ".inicio",
                 start: "top top",
-                end: "+=300vh top",
+                end: "+=100% center",
                 scrub: 2,
+                markers: true,
                 pin: true,
             },
         });
