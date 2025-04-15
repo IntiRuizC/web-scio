@@ -35,7 +35,6 @@ const Inicio = () => {
                 start: "top top",
                 end: "+=100% center",
                 scrub: 2,
-                markers: true,
                 pin: true,
             },
         });
