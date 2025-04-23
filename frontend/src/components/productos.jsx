@@ -45,13 +45,13 @@ const HorizontalScrollSection = () => {
             trigger: ".productos",
             start: "top-=5% top",
             end: "bottom+=90%",
-            markers: true,
             toggleClass:
             {
                 targets: [".navbar", ".ulvert", ".logoblanco",
                     ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], className: "in-productos"
             },
         });
+
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
@@ -82,25 +82,34 @@ const HorizontalScrollSection = () => {
                 y: -100,
                 opacity: 0
             }, {
-                y: 0,
+                y: 10,
                 opacity: 1,
                 scrollTrigger: {
                     trigger: section,
                     containerAnimation: horizontalTween,
                     start: "left center",
-                    end: "right right+=200",
+                    end: "right right+=300",
                     scrub: true,
                 }
             });
         });
 
+        // const navConfig = [
+        //     { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], offset: "0%" },
+        //     { targets: [".nav-conta", "#menu-prod", "#menu-toggle"], offset: "5%" },
+        //     { targets: [".nav-team"], offset: "10%" },
+        //     { targets: [".nav-us"], offset: "15%" },
+        //     { targets: [".nav-clien"], offset: "18%" },
+        //     { targets: [".nav-prod"], offset: "23%", className: "prod-navpos" }
+        // ];
+
         const navConfig = [
-            { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], offset: "0%" },
-            { targets: [".nav-conta", "#menu-prod", "#menu-toggle"], offset: "5%" },
+            { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], offset: "10%" },
+            { targets: [".nav-conta", "#menu-prod", "#menu-toggle"], offset: "10%" },
             { targets: [".nav-team"], offset: "10%" },
-            { targets: [".nav-us"], offset: "15%" },
-            { targets: [".nav-clien"], offset: "18%" },
-            { targets: [".nav-prod"], offset: "23%", className: "prod-navpos" }
+            { targets: [".nav-us"], offset: "10%" },
+            { targets: [".nav-clien"], offset: "10%" },
+            { targets: [".nav-prod"], offset: "10%", className: "prod-navpos" }
         ];
 
         navConfig.forEach(({ targets, offset, className = "nav-black" }) => {
@@ -110,7 +119,6 @@ const HorizontalScrollSection = () => {
                 start: `left+=${offset} center`,
                 end: `center center`,
                 scrub: true,
-                markers: true,
                 toggleClass: { targets, className }
             });
         });
@@ -122,7 +130,7 @@ const HorizontalScrollSection = () => {
 
 
     return (
-        <section className="productos-container" style={{ overflow: "hidden" }}>
+        <section className="productos-container" id= "productos" style={{ overflow: "hidden" }}>
             <div className="productos" style={{ display: "flex", height: "100vh" }}>
                 {productosData.map((producto, index) => (
                     <div
@@ -154,7 +162,7 @@ const HorizontalScrollSection = () => {
                                 src={producto.mobile}
                                 alt={producto.alt}
                                 style={{
-                                    width: "90vw",         // que ocupe todo el contenedor
+                                    width: "85vw",         // que ocupe todo el contenedor
                                     height: "auto"         // sin deformarse
                                 }}
                             />
