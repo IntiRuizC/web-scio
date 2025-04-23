@@ -23,14 +23,14 @@ gsap.registerPlugin(ScrollTrigger);
 const productosData = [
 
     {
-        alt: "ojs-omp",
+        alt: "producto-entrada",
         mobile: portadaMobileNarrow,
         tablet: portadaTablet,
         desktop: portada16by9,
         bg: "hsl(187, 95%, 25%)"
     },
     {
-        alt: "Producto-entrada",
+        alt: "ojs-omp",
         mobile: productoMobileNarrow,
         tablet: productoTablet,
         desktop: producto16by9,
@@ -41,17 +41,20 @@ const productosData = [
 
 const HorizontalScrollSection = () => {
     useEffect(() => {
-            ScrollTrigger.create({
-                trigger: ".productos",
-                start: "top-=1% top",
-                end: "bottom+=50%",
-                markers: true,
-                toggleClass:
-                    { targets: [".navbar", ".ulvert",".logoblanco",
-                        ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], className: "in-productos" },
-            });
-            return () => ScrollTrigger.getAll().forEach(t => t.kill());
-        }, []);
+        ScrollTrigger.create({
+            trigger: ".productos",
+            start: "top-=5% top",
+            end: "bottom+=90%",
+            markers: true,
+            toggleClass:
+            {
+                targets: [".navbar", ".ulvert", ".logoblanco",
+                    ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], className: "in-productos"
+            },
+        });
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
+
     useEffect(() => {
         const productos = document.querySelector(".productos");
         const totalScroll = productos.scrollWidth - window.innerWidth;
@@ -70,6 +73,7 @@ const HorizontalScrollSection = () => {
             }
         });
 
+
         // Entrada de imagenes al hacer scroll horizontal
         gsap.utils.toArray(".producto").forEach((section) => {
             const image = section.querySelector("img");
@@ -86,8 +90,28 @@ const HorizontalScrollSection = () => {
                     start: "left center",
                     end: "right right+=200",
                     scrub: true,
-                    markers: true
                 }
+            });
+        });
+
+        const navConfig = [
+            { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], offset: "0%" },
+            { targets: [".nav-conta", "#menu-prod", "#menu-toggle"], offset: "5%" },
+            { targets: [".nav-team"], offset: "10%" },
+            { targets: [".nav-us"], offset: "15%" },
+            { targets: [".nav-clien"], offset: "18%" },
+            { targets: [".nav-prod"], offset: "23%", className: "prod-navpos" }
+        ];
+
+        navConfig.forEach(({ targets, offset, className = "nav-black" }) => {
+            ScrollTrigger.create({
+                trigger: ".ojs-omp",
+                containerAnimation: horizontalTween,
+                start: `left+=${offset} center`,
+                end: `center center`,
+                scrub: true,
+                markers: true,
+                toggleClass: { targets, className }
             });
         });
 
@@ -96,13 +120,14 @@ const HorizontalScrollSection = () => {
         };
     }, []);
 
+
     return (
         <section className="productos-container" style={{ overflow: "hidden" }}>
             <div className="productos" style={{ display: "flex", height: "100vh" }}>
                 {productosData.map((producto, index) => (
                     <div
                         key={index}
-                        className="producto"
+                        className={`producto ${producto.alt}`}
                         style={{
                             flex: "0 0 110vw",
                             display: "flex",
@@ -116,13 +141,13 @@ const HorizontalScrollSection = () => {
                             <source
                                 media="(min-width: 1000px)"
                                 srcSet={producto.desktop}
-                
+
                             />
                             {/* Versión tablet / pantallas medianas */}
                             <source
                                 media="(min-width: 769px)"
                                 srcSet={producto.tablet}
-                
+
                             />
                             {/* Fallback móvil y última esperanza de la humanidad */}
                             <img
