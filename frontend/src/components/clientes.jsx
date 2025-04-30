@@ -56,7 +56,7 @@ const ListaUniversidades = () => {
 
         ScrollTrigger.create({
                     trigger:"#clientes",
-                    start: "top-=98% top",
+                    start: "top-=100% top",
                     end: "top top+=10%",
                     toggleClass: {  targets: [".nav-prod"], className: "prod-navpos" }
                 })

@@ -11,6 +11,14 @@ import portada4by3Portrait from "../images/productoEntrada/Portada_web_768x1024.
 import portadaMobileNarrow from "../images/productoEntrada/Portada_web_390x844.svg";    // Mobile portrait (~0.46:1)
 import portadaTablet from "../images/productoEntrada/Portada_820x1180.svg";             // Tablet portrait (~0.69:1)
 
+//Import producto 2 (Evaluación por pares)
+import evaluacionpp from "../images/producto2/Producto2_eval.svg"
+
+//Import portada
+import productport from "../images/portada/Portada2.svg"
+import productport2 from "../images/portada/Portada3.svg"
+
+
 
 
 // HorizontalScrollSection.jsx
@@ -27,7 +35,14 @@ const productosData = [
         mobile: portadaMobileNarrow,
         tablet: portadaTablet,
         desktop: portada16by9,
-        bg: "hsl(187, 95%, 25%)"
+        bg: "#036e7c"
+    },
+    {
+        alt: "producto-portada",
+        mobile: productport,
+        tablet: productport2,
+        desktop: productport2,
+        bg: "#036e7c"
     },
     {
         alt: "ojs-omp",
@@ -36,24 +51,18 @@ const productosData = [
         desktop: producto16by9,
         bg: "#f5f5f5"
     },
+    {
+        alt: "evaluacionpp",
+        mobile: evaluacionpp,
+        tablet: evaluacionpp,
+        desktop: evaluacionpp,
+        bg: "#f5f5f5"
+    },
 ];
 
 
 const HorizontalScrollSection = () => {
-    useEffect(() => {
-        ScrollTrigger.create({
-            trigger: ".productos",
-            start: "top-=5% top",
-            end: "bottom+=90%",
-            toggleClass:
-            {
-                targets: [".navbar", ".ulvert", ".logoblanco",
-                    ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], className: "in-productos"
-            },
-        });
-
-        return () => ScrollTrigger.getAll().forEach(t => t.kill());
-    }, []);
+    
 
     useEffect(() => {
         const productos = document.querySelector(".productos");
@@ -70,6 +79,10 @@ const HorizontalScrollSection = () => {
                 scrub: 1,
                 pin: true,
                 anticipatePin: 1,
+                toggleClass: {
+                    targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"],
+                    className: "in-productos"
+                }
             }
         });
 
@@ -117,7 +130,8 @@ const HorizontalScrollSection = () => {
                 trigger: ".ojs-omp",
                 containerAnimation: horizontalTween,
                 start: `left+=${offset} center`,
-                end: `center center`,
+                end: `right center`,
+                markers: true,
                 scrub: true,
                 toggleClass: { targets, className }
             });
