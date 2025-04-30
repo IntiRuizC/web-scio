@@ -112,21 +112,20 @@ export default function ScrollAnimation() {
 
             <div className="text-section" ref={textContainerRef}>
                 <p>
-                    En SCIO convertimos <span>datos</span> en historias visuales que potencian decisiones estratégicas.
-                    Nos especializamos en organizar, normalizar, analizar y<span> visualizar </span>información para maximizar
-                    el valor de los datos. Nuestra fortaleza radica en combinar análisis preciso con diseño intuitivo.
-                    Colaboramos con universidades, empresas y entidades públicas, ofreciendo soluciones personalizadas
-                    que abarcan desde catalogación de datos hasta visualizaciones interactivas y recursos <span> pedagógicos</span>.
-                    Cada proyecto busca democratizar el conocimiento, transformando información compleja en herramientas
-                    accesibles. Porque los datos no son un fin, sino un punto de partida para hacer<span> preguntas </span>más idóneas
-                    y construir respuestas más audaces
+                    En SCIO convertimos <span>datos</span> en historias visuales que potencian decisiones estratégicas. Nos especializamos en organizar,
+                    normalizar, analizar y <span>visualizar</span> información con el propósito de maximizar el valor de los datos. Nuestra fortaleza 
+                    radica en combinar análisis precisos con diseños intuitivos. Colaboramos con universidades, empresas y entidades públicas,
+                    ofreciendo soluciones individualizadas que abarcan desde catalogación de datos hasta visualizaciones interactivas y 
+                    recursos <span> pedagógicos</span>. Cada proyecto busca hacer más asequible el conocimiento, transformando información compleja en 
+                    herramientas comprensibles. Porque los datos no son un fin, sino un punto de partida para hacer <span> preguntas </span> más idóneas y 
+                    construir respuestas más audaces.
                 </p>
             </div>
 
             <div className="top-nos"></div>
 
             <div className="values-section" ref={valuesRef}>
-                <h2>VALORES</h2>
+                <h2>PRINCIPIOS</h2>
 
 
                 <div className="values">
