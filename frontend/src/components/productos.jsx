@@ -107,36 +107,6 @@ const HorizontalScrollSection = () => {
             });
         });
 
-        // const navConfig = [
-        //     { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], offset: "0%" },
-        //     { targets: [".nav-conta", "#menu-prod", "#menu-toggle"], offset: "5%" },
-        //     { targets: [".nav-team"], offset: "10%" },
-        //     { targets: [".nav-us"], offset: "15%" },
-        //     { targets: [".nav-clien"], offset: "18%" },
-        //     { targets: [".nav-prod"], offset: "23%", className: "prod-navpos" }
-        // ];
-
-        const navConfig = [
-            { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"], offset: "10%" },
-            { targets: [".nav-conta", "#menu-prod", "#menu-toggle"], offset: "10%" },
-            { targets: [".nav-team"], offset: "10%" },
-            { targets: [".nav-us"], offset: "10%" },
-            { targets: [".nav-clien"], offset: "10%" },
-            { targets: [".nav-prod"], offset: "10%", className: "prod-navpos" }
-        ];
-
-        navConfig.forEach(({ targets, offset, className = "nav-black" }) => {
-            ScrollTrigger.create({
-                trigger: ".ojs-omp",
-                containerAnimation: horizontalTween,
-                start: `left+=${offset} center`,
-                end: `right center`,
-                markers: true,
-                scrub: true,
-                toggleClass: { targets, className }
-            });
-        });
-
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
@@ -176,7 +146,7 @@ const HorizontalScrollSection = () => {
                                 src={producto.mobile}
                                 alt={producto.alt}
                                 style={{
-                                    width: "85vw",         // que ocupe todo el contenedor
+                                    width: "80vw",         // que ocupe todo el contenedor
                                     height: "auto"         // sin deformarse
                                 }}
                             />
