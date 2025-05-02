@@ -80,7 +80,7 @@ const HorizontalScrollSection = () => {
                 pin: true,
                 anticipatePin: 1,
                 toggleClass: {
-                    targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-nos", "#menu-toggle"],
+                    targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-prod", "#menu-toggle"],
                     className: "in-productos"
                 }
             }
@@ -101,8 +101,9 @@ const HorizontalScrollSection = () => {
                     trigger: section,
                     containerAnimation: horizontalTween,
                     start: "left center",
-                    end: "right right+=300",
-                    scrub: true,
+                    end: "right-=100 right",
+                    scrub: 1,
+                    markers: true
                 }
             });
         });
