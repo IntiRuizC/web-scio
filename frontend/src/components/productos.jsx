@@ -103,7 +103,6 @@ const HorizontalScrollSection = () => {
                     start: "left center",
                     end: "right-=100 right",
                     scrub: 1,
-                    markers: true
                 }
             });
         });
