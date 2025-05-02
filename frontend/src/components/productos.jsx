@@ -38,6 +38,13 @@ const productosData = [
         bg: "#036e7c"
     },
     {
+        alt: "ojs-omp",
+        mobile: productoMobileNarrow,
+        tablet: productoTablet,
+        desktop: producto16by9,
+        bg: "#ffffff"
+    },
+    {
         alt: "producto-portada",
         mobile: productport,
         tablet: productport2,
@@ -45,18 +52,11 @@ const productosData = [
         bg: "#036e7c"
     },
     {
-        alt: "ojs-omp",
-        mobile: productoMobileNarrow,
-        tablet: productoTablet,
-        desktop: producto16by9,
-        bg: "#f5f5f5"
-    },
-    {
         alt: "evaluacionpp",
         mobile: evaluacionpp,
         tablet: evaluacionpp,
         desktop: evaluacionpp,
-        bg: "#f5f5f5"
+        bg: "#ffffff"
     },
 ];
 
