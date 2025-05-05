@@ -58,7 +58,10 @@ const ListaUniversidades = () => {
                     trigger:"#clientes",
                     start: "top-=100% top",
                     end: "top top+=10%",
-                    toggleClass: {  targets: [".nav-prod"], className: "prod-navpos" }
+                    toggleClass: {
+                        targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-prod", "#menu-toggle"],
+                        className: "in-productos"
+                    }
                 })
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
