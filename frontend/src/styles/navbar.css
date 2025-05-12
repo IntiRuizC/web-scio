@@ -53,6 +53,10 @@
     color: #ffffff;
 }
 
+.navbar.in-productos {
+    background-color: #036E7C;
+    height: 7vh;
+}
 
 .logoblanco.in-productos {
     opacity: 1;

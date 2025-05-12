@@ -29,41 +29,42 @@ const Inicio = () => {
     }, []);
 
     useEffect(() => {
-        let tl = gsap.timeline({
+
+
+        let tlBarras = gsap.timeline({
             scrollTrigger: {
                 trigger: ".inicio",
                 start: "top top",
-                end: "+=100% center",
+                end: "+=300",
                 scrub: 2,
-                pin: true,
-            },
+            }
         });
 
-        tl.fromTo(
-            ".background-white",
-            { width: "0%", left: "100%" },
-            { width: "100%", left: "0%", ease: "none" }, "-=1"
-        )
-        tl.fromTo(
-            ".barras",
-            { opacity: "0"},
-            {opacity: "1", ease: "none", zIndex: "900"}, "-=1"
-        )
+        tlBarras
+            .fromTo(".background-white", { width: "0%", left: "100%" }, { width: "100%", left: "0%", ease: "none" }, "-=1")
+            .fromTo(".barras", { opacity: "0" }, { opacity: "1", ease: "none", zIndex: "900" }, "-=1")
+            .fromTo(".barra-mostaza1", { x: -200, opacity: "0" }, { x: 1, opacity: "1" })
+            .fromTo(".barra-morada1", { y: -200, opacity: "0" }, { y: 1, opacity: "1" })
+            .fromTo(".barra-verde1", { opacity: "0" }, { opacity: "1" })
+            .fromTo(".barra-verde2", { scale: "0.3", opacity: "0" }, { scale: "1", opacity: "1" })
+            .fromTo(".barra-naranja1", { y: "200", opacity: "0" }, { y: "0", opacity: "1" })
+            .fromTo(".barra-mostaza2", { x: -200, opacity: "0" }, { x: 1, opacity: "1" })
+            .fromTo(".barra-naranja2", { scale: "0.2", opacity: "0" }, { scale: "1", opacity: "1" })
+            .fromTo(".barra-verde3", { scale: "0.2", opacity: "0", rotate: "90deg" }, { scale: "1", opacity: "1", rotate: "360deg" })
+            .fromTo(".barra-morada2", { opacity: "0" }, { opacity: "1" })
+            .fromTo(".barra-mostaza3", { scale: "0.2", opacity: "0", rotate: "90deg" }, { scale: "1", opacity: "1", rotate: "360deg" })
+            .fromTo(".barra-verde4", { scale: "0", opacity: "0" }, { scale: "1", opacity: "1" })
+            .fromTo(".barra-morada3", { scale: "0.3", opacity: "0" }, { scale: "1", opacity: "1" })
+            .fromTo(".barra-verde5", { x: -200, opacity: "0" }, { x: 0, opacity: "1" });
 
-        //debe haber una mejor forma de hacer esto...  🤷‍♂️
-        tl.fromTo(".barra-mostaza1", {x: -200, opacity: "0"}, {x: 1, opacity: "1"})
-            .fromTo(".barra-morada1", {y: -200, opacity: "0"}, {y: 1, opacity: "1"})
-            .fromTo(".barra-verde1", { opacity: "0"}, {opacity: "1"})
-            .fromTo(".barra-verde2", {scale: "0.3", opacity: "0"}, {scale: "1", opacity: "1"})
-            .fromTo(".barra-naranja1", {y: "200", opacity: "0"}, {y: "0", opacity: "1"})
-            .fromTo(".barra-mostaza2", {x: -200, opacity: "0"}, {x: 1, opacity: "1"})
-            .fromTo(".barra-naranja2", {scale: "0.2", opacity: "0"}, {scale: "1", opacity: "1"})
-            .fromTo(".barra-verde3", {scale: "0.2", opacity: "0", rotate: "90deg"}, {scale: "1", opacity: "1", rotate: "360deg"})
-            .fromTo(".barra-morada2", {opacity: "0"}, {opacity: "1"})
-            .fromTo(".barra-mostaza3", {scale: "0.2", opacity: "0", rotate: "90deg"}, {scale: "1", opacity: "1", rotate: "360deg"})
-            .fromTo(".barra-verde4", {scale: "0", opacity: "0"}, { scale: "1", opacity: "1"})
-            .fromTo(".barra-morada3", { scale: "0.3", opacity: "0"}, {scale: "1", opacity: "1"})
-            .fromTo(".barra-verde5", {x: -200, opacity: "0"}, {x: 0, opacity: "1"});
+        ScrollTrigger.create({
+            trigger: ".inicio",
+            start: "top top",
+            end: "+=1000", // duración del pin (puedes ajustar)
+            pin: true,
+            scrub: true,
+        });
+
 
         // Limpieza de animaciones cuando se desmonta
         return () => {

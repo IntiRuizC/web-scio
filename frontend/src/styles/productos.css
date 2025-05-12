@@ -1,61 +1,74 @@
+/* CONTENEDOR PRINCIPAL FIJO */
 .productos-container {
+    position: relative;
     overflow: hidden;
     height: 100vh;
-    position: relative;
-    background-color: white;
+    background-color: #fff;
 }
 
+/* SECCIÓN DE PRODUCTOS SCROLLEABLE EN HORIZONTAL */
 .productos {
     display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
     width: max-content;
     position: relative;
-    height: 100vh;
-    /*flex-direction: row-reverse;*/
 }
 
+/* CADA PRODUCTO OCUPA UNA PANTALLA COMPLETA */
 .producto {
+    flex: 0 0 100vw;
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: end;
-    font-size: 1.5rem;
-}
-
-.producto-1 {
-    background-color: white;
+    align-items: flex-end;
     position: relative;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
-.producto-2 {
-    background-color: #036E7C ;
+.producto picture,
+.producto picture img {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
+/* IMÁGENES */
+.producto picture,
+.producto img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* OPCIONAL: EFECTO DE SUPERPOSICIÓN MIX-BLEND */
 .blend-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 8vh;
-    background: white; /* Color de la zona blanca */
+    background: white;
     mix-blend-mode: difference;
     pointer-events: none;
+    z-index: 10;
 }
 
-
-/* Make images fill their containers while maintaining aspect ratio */
-.img-pro1, .img-pro2 {
-    max-width: 100%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-/* For smaller screens, we can ensure better visibility */
+/* RESPONSIVE TWEAKS */
 @media (max-width: 768px) {
-    .img-pro1, .img-pro2 {
-        width: 100%;
+    .producto {
+        align-items: center;
         padding: 1rem;
+    }
+
+    .producto picture,
+    .producto img {
+        width: 100%;
+        height: auto;
+        max-height: 60vh;
     }
 }
