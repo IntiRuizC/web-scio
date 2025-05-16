@@ -62,28 +62,45 @@ const productosData = [
 
 
 const HorizontalScrollSection = () => {
-    
+
 
     useEffect(() => {
         const productos = document.querySelector(".productos");
+        const contenedor = document.querySelector(".productos-container");
         const totalScroll = productos.scrollWidth - window.innerWidth;
+        const distanciaExtra = window.innerHeight-200; // espacio vertical tras el horizontal
 
+        // 1) Tween horizontal (sin toggleClass)
         const horizontalTween = gsap.to(productos, {
             x: () => `-${totalScroll}px`,
             ease: "none",
             scrollTrigger: {
                 id: "horizontalScroll",
-                trigger: ".productos-container",
+                trigger: contenedor,
                 start: "top top",
                 end: () => `+=${totalScroll}`,
                 scrub: 1,
                 pin: true,
                 anticipatePin: 1,
-                toggleClass: {
-                    targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor", ".nav-prod", "#menu-prod", "#menu-toggle"],
-                    className: "in-productos"
-                }
             }
+        });
+
+        ScrollTrigger.create({
+            id: "toggle-navbar",
+            trigger: contenedor,
+            start: "top top",
+            // cubre horizontal + la altura de la ventana, para incluir el tramo vertical
+            end: () => `+=${totalScroll + distanciaExtra}`,
+            toggleClass: {
+                targets: [
+                    ".navbar", ".ulvert",
+                    ".logoblanco", ".logocolor",
+                    ".nav-prod", "#menu-prod", "#menu-toggle"
+                ],
+                className: "in-productos"
+            },
+            // garantizamos que onEnterBack también funcione
+            toggleActions: "play reverse play reverse"
         });
 
 
@@ -114,7 +131,7 @@ const HorizontalScrollSection = () => {
 
 
     return (
-        <section className="productos-container" id= "productos" style={{ overflow: "hidden" }}>
+        <section className="productos-container" id="productos" style={{ overflow: "hidden" }}>
             <div className="productos" style={{ display: "flex", height: "100vh" }}>
                 {productosData.map((producto, index) => (
                     <div

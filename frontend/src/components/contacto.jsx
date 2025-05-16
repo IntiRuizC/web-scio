@@ -59,7 +59,7 @@ const ContactSection = () => {
         .fromTo("body",
             {backgroundColor: "#d03e16"},
             {backgroundColor: "#036e7c"}
-        );;
+        );
     }, []);
 
     const handleSubmit = async (e) => {
