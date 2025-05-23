@@ -82,7 +82,7 @@ deploy_staging:
       docker run -d
       --name web-scio-frontend
       -p 5173:5173
-      -e VITE_API_URL=http://167.86.75.57:3001
+      -e VITE_API_URL=https://167.86.75.57:3001
       --restart unless-stopped
       $FRONTEND_IMAGE_NAME:$DOCKER_IMAGE_TAG
       
