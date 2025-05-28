@@ -339,7 +339,6 @@ a {
         transform: rotate(-90deg);
         left: -11.1vw;
         top: 28vh;
-        display: none;
     }
 }
 
@@ -377,8 +376,8 @@ a {
     }
 
     .ulhor {
-        left: -8.6vw;
-        top: 33vh;
+        left: -1vw;
+        top: 20vh;
         font-size: 1.2rem;
     }
 

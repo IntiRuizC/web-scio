@@ -73,8 +73,8 @@ const NavBar = ({ activeSection }) => {
                             onClick={windowWidth < 1000 ? toggleMenu : null}>  CONTACTO </a> </li>
                     </ul>
                     <ul className={`ulhor ${menuOpen ? 'open' : ''}`}>
-                        <li>VISUALIZACIONES</li>
-                        <li>BLOG</li>
+                        {/* <li>VISUALIZACIONES</li>
+                        <li>BLOG</li> */}
                         <li>PORTAFOLIO</li>
                     </ul>
                 </div>
