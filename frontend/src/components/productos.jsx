@@ -95,7 +95,8 @@ const HorizontalScrollSection = () => {
                 targets: [
                     ".navbar", ".ulvert",
                     ".logoblanco", ".logocolor",
-                    ".nav-prod", "#menu-prod", "#menu-toggle"
+                    ".nav-prod", "#menu-prod", "#menu-toggle",
+                    ".navlateral"
                 ],
                 className: "in-productos"
             },

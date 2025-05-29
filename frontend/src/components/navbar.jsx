@@ -41,6 +41,7 @@ const NavBar = ({ activeSection }) => {
 
     return (
         <div className="navbar">
+            <div className="navlateral"></div>
             <div className="logo">
                 <img className='logoblanco' src={logoblanco} alt="Scio/white" />
                 <img className="logocolor" src={logocolor} alt="Scio/color" />

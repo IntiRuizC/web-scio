@@ -272,6 +272,10 @@ a {
     /* color del texto cuando esté seleccionado */
 }
 
+.navlateral {
+        display: none;
+    }
+
 @media (min-width: 750px) {
     .logo {
         width: 70px;
@@ -339,6 +343,18 @@ a {
         transform: rotate(-90deg);
         left: -1.1vw;
         top: 16vh
+    }
+
+    .navlateral {
+        height: 100vh;
+        width: 6vw;
+        position: absolute;
+        display: block;
+        left: 0;
+    }
+
+    .navlateral.in-productos { 
+        background-color: #036E7C;
     }
 }
 
