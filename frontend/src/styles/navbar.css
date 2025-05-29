@@ -337,8 +337,8 @@ a {
         display: inline-flex;
         position: absolute;
         transform: rotate(-90deg);
-        left: -11.1vw;
-        top: 28vh;
+        left: -1.1vw;
+        top: 16vh
     }
 }
 
@@ -354,8 +354,6 @@ a {
     }
 
     .ulhor {
-        left: -9.6vw;
-        top: 32vh;
         font-size: 0.9rem;
     }
 }
