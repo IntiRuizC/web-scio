@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-// Imports incompletos tuyos corregidos (asegúrate de tener las rutas correctas)
+
 import portf1 from "../images/gestion/Portafolio_ServiciosEditoriales.svg";
 import contenido from "../images/gestion/contenido.svg";
 import cont1 from "../images/gestion/1.svg";
@@ -10,6 +10,7 @@ import cont2 from "../images/gestion/2.svg";
 import cont3 from "../images/gestion/3.svg";
 import cont4 from "../images/gestion/4.svg";
 import cont5 from "../images/gestion/5.svg";
+import cont6 from "../images/gestion/6.svg";
 import contacto from "../images/gestion/contacto.svg";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +23,7 @@ const productosData = [
     { alt: "cont3", desktop: cont3, bg: "#e6e4e1" },
     { alt: "cont4", desktop: cont4, bg: "#e6e4e1" },
     { alt: "cont5", desktop: cont5, bg: "#e6e4e1" },
+    { alt: "cont6", desktop: cont6, bg: "#e6e4e1" },
     { alt: "contacto", desktop: contacto, bg: "#e6e4e1" },
 ];
 
