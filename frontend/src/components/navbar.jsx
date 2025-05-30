@@ -40,6 +40,8 @@ const NavBar = ({ activeSection }) => {
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
+    const [subMenuOpen, setSubMenuOpen] = useState(false); // Nuevo estado para el submenú
+
     return (
         <div className="navbar">
             <div className="navlateral"></div>
@@ -52,14 +54,14 @@ const NavBar = ({ activeSection }) => {
                 {/* Solo aplicar el evento toggle si el ancho de la ventana es menor a 1000px */}
                 {windowWidth < 1000 && (
                     <>
-                    <h4 id="menu-toggle" onClick={toggleMenu}> MENÚ </h4>
-                    <h4 id="menu-prod" onClick={toggleMenu}> PRODUCTOS </h4>
-                    <h4 id="menu-clie" onClick={toggleMenu}> CLIENTES </h4>
-                    <h4 id="menu-nos" onClick={toggleMenu}> NOSOTROS </h4>
-                    <h4 id="menu-equi" onClick={toggleMenu}> EQUIPO </h4>
-                    <h4 id="menu-cont" onClick={toggleMenu}> CONTACTO </h4>
+                        <h4 id="menu-toggle" onClick={toggleMenu}> MENÚ </h4>
+                        <h4 id="menu-prod" onClick={toggleMenu}> PRODUCTOS </h4>
+                        <h4 id="menu-clie" onClick={toggleMenu}> CLIENTES </h4>
+                        <h4 id="menu-nos" onClick={toggleMenu}> NOSOTROS </h4>
+                        <h4 id="menu-equi" onClick={toggleMenu}> EQUIPO </h4>
+                        <h4 id="menu-cont" onClick={toggleMenu}> CONTACTO </h4>
                     </>
-                    
+
                 )}
                 <div className={`list ${menuOpen ? 'open' : ''}`}>
                     <ul className={`ulvert ${menuOpen ? 'open' : ''}`}>
@@ -77,7 +79,16 @@ const NavBar = ({ activeSection }) => {
                     <ul className={`ulhor ${menuOpen ? 'open' : ''}`}>
                         {/* <li>VISUALIZACIONES</li>
                         <li>BLOG</li> */}
-                        <li> <a href="/gestion" target='_bank'>PORTAFOLIO</a> </li>
+                        <ul className={` ${menuOpen ? 'open' : ''}`}>
+                            <li onClick={() => setSubMenuOpen(!subMenuOpen)} style={{ cursor: 'pointer' }}>
+                                PORTAFOLIO
+                                <ul className={`submenu ${subMenuOpen ? 'visible' : 'hidden'}`}>
+                                    <li><a href="/gestion" target= "_blank" onClick={windowWidth < 1000 ? toggleMenu : null}>Gestión</a></li>
+                                    <li><a href="/marketing"target= "_blank" onClick={windowWidth < 1000 ? toggleMenu : null}>Marketing</a></li>                                    
+                                </ul>
+                            </li>
+                        </ul>
+
                     </ul>
                 </div>
             </div>
