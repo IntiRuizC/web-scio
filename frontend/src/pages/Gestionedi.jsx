@@ -15,14 +15,14 @@ import contacto from "../images/gestion/contacto.svg";
 gsap.registerPlugin(ScrollTrigger);
 
 const productosData = [
-    { alt: "producto-entrada", desktop: portf1, bg: "#036e7c" },
+    { alt: "producto-entrada", desktop: portf1, bg: "#e6e4e1" },
     { alt: "contenido", desktop: contenido, bg: "#e6e4e1" },
     { alt: "cont1", desktop: cont1, bg: "#e6e4e1" },
     { alt: "cont2", desktop: cont2, bg: "#e6e4e1" },
     { alt: "cont3", desktop: cont3, bg: "#e6e4e1" },
-    { alt: "cont4", desktop: cont4, bg: "#ffffff" },
-    { alt: "cont5", desktop: cont5, bg: "#ffffff" },
-    { alt: "contacto", desktop: contacto, bg: "#ffffff" },
+    { alt: "cont4", desktop: cont4, bg: "#e6e4e1" },
+    { alt: "cont5", desktop: cont5, bg: "#e6e4e1" },
+    { alt: "contacto", desktop: contacto, bg: "#e6e4e1" },
 ];
 
 function Gestionedi() {

@@ -77,7 +77,7 @@ const NavBar = ({ activeSection }) => {
                     <ul className={`ulhor ${menuOpen ? 'open' : ''}`}>
                         {/* <li>VISUALIZACIONES</li>
                         <li>BLOG</li> */}
-                        <li> <a href="/Gestion" target='_blank'>PORTAFOLIO</a> </li>
+                        <li> <a href="/gestion" target='_bank'>PORTAFOLIO</a> </li>
                     </ul>
                 </div>
             </div>
