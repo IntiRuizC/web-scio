@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoblanco from "../logos/Logo_SCIO_Letras_Blancas.svg";
 import logocolor from "../logos/Logo_SCIO_Letras_Color.svg";
+import { Link } from 'react-router-dom';
 import "../styles/navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -76,7 +77,7 @@ const NavBar = ({ activeSection }) => {
                     <ul className={`ulhor ${menuOpen ? 'open' : ''}`}>
                         {/* <li>VISUALIZACIONES</li>
                         <li>BLOG</li> */}
-                        <li>PORTAFOLIO</li>
+                        <li> <a href="/Gestion" target='_blank'>PORTAFOLIO</a> </li>
                     </ul>
                 </div>
             </div>
