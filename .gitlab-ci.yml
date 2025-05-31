@@ -3,91 +3,134 @@ stages:
   - deploy
 
 variables:
-  FRONTEND_IMAGE_NAME: web-scio-frontend
-  BACKEND_IMAGE_NAME: web-scio-backend
-  DOCKER_IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+  IMAGE_NAME: "scio-website"
+  IMAGE_TAG: "$CI_COMMIT_SHORT_SHA"
+  DOCKER_TLS_CERTDIR: "/certs"
 
-# Use Docker in Docker service
-services:
-  - docker:dind
-
-build_frontend:
+# Build Docker image
+build_production:
   stage: build
-  image: docker:stable
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
   script:
-    - cd frontend
-    - docker build -t $FRONTEND_IMAGE_NAME:$DOCKER_IMAGE_TAG .
-    - docker save $FRONTEND_IMAGE_NAME:$DOCKER_IMAGE_TAG > ../frontend-image.tar
+    # Build production Docker image
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker tag $IMAGE_NAME:$IMAGE_TAG $IMAGE_NAME:latest
+
+    # Save image as tar file for transfer
+    - docker save $IMAGE_NAME:$IMAGE_TAG | gzip > scio-website-image.tar.gz
+
   artifacts:
     paths:
-      - frontend-image.tar
+      - scio-website-image.tar.gz
     expire_in: 1 hour
+  only:
+    - main
 
-build_backend:
-  stage: build
-  image: docker:stable
+# Deploy to production server (remote)
+deploy_production:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    # Setup SSH
+    - apk add --no-cache openssh-client
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
-    - cd backend
-    - docker build -t $BACKEND_IMAGE_NAME:$DOCKER_IMAGE_TAG .
-    - docker save $BACKEND_IMAGE_NAME:$DOCKER_IMAGE_TAG > ../backend-image.tar
-  artifacts:
-    paths:
-      - backend-image.tar
-    expire_in: 1 hour
+    # Transfer Docker image to production server
+    - scp scio-website-image.tar.gz $DEPLOY_USER@$DEPLOY_HOST:/tmp/
 
+    # Deploy on production server via SSH
+    - |
+      ssh $DEPLOY_USER@$DEPLOY_HOST "
+        # Load new Docker image
+        cd /tmp &&
+        gunzip -c scio-website-image.tar.gz | docker load &&
+      
+        # Stop and remove old container
+        docker stop scio-website || true &&
+        docker rm scio-website || true &&
+      
+        # Start new container with environment variables
+        docker run -d \
+          --name scio-website \
+          --restart unless-stopped \
+          -p 127.0.0.1:3001:3001 \
+          -e NODE_ENV=production \
+          -e PORT=3001 \
+          -e MAIL_HOST='$MAIL_HOST' \
+          -e MAIL_PORT='$MAIL_PORT' \
+          -e MAIL_SECURE='$MAIL_SECURE' \
+          -e MAIL_USER='$MAIL_USER' \
+          -e MAIL_PASSWORD='$MAIL_PASSWORD' \
+          -e MAIL_FROM='$MAIL_FROM' \
+          -e MAIL_TO='$MAIL_TO' \
+          -e COMPANY_NAME='Corporación Scio' \
+          -e SEND_CONFIRMATION='$SEND_CONFIRMATION' \
+          $IMAGE_NAME:$IMAGE_TAG &&
+      
+        # Cleanup
+        rm /tmp/scio-website-image.tar.gz &&
+        docker image prune -f &&
+      
+        # Verify deployment
+        sleep 5 &&
+        curl -f http://localhost:3001/api/health || exit 1
+      "
+  environment:
+    name: production
+    url: https://sciocorp.org
+  only:
+    - main
+  needs:
+    - build_production
+
+# Future: Deploy to staging (same server as GitLab)
 deploy_staging:
   stage: deploy
-  image: docker:stable
-  only:
-    - main  # Only deploy when changes are pushed to main branch
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
   script:
-    # Load the Docker images
-    - docker load < frontend-image.tar
-    - docker load < backend-image.tar
-    
-    # Stop and remove existing containers if they exist
-    - docker stop web-scio-frontend || true
-    - docker rm web-scio-frontend || true
-    - docker stop web-scio-backend || true
-    - docker rm web-scio-backend || true
-    
-    # Create backend .env file from CI/CD variables
+    # Load the built image
+    - docker load < scio-website-image.tar.gz
+
+    # Stop and remove old staging container
+    - docker stop scio-website-staging || true
+    - docker rm scio-website-staging || true
+
+    # Start staging container on different port
     - |
-      cat > backend/.env << EOF
-      PORT=${PORT}
-      NODE_ENV=${NODE_ENV}
-      ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
-      MAIL_HOST=${MAIL_HOST}
-      MAIL_PORT=${MAIL_PORT}
-      MAIL_SECURE=${MAIL_SECURE}
-      MAIL_USER=${MAIL_USER}
-      MAIL_PASSWORD=${MAIL_PASSWORD}
-      MAIL_FROM=${MAIL_FROM}
-      MAIL_TO=${MAIL_TO}
-      COMPANY_NAME=Corporación Scio
-      SEND_CONFIRMATION=${SEND_CONFIRMATION}
-      EOF
-    
-    # Start backend container
-    - >
-      docker run -d
-      --name web-scio-backend
-      -p 3001:3001
-      --env-file backend/.env
-      --restart unless-stopped
-      $BACKEND_IMAGE_NAME:$DOCKER_IMAGE_TAG
-      
-    # Start frontend container
-    - >
-      docker run -d
-      --name web-scio-frontend
-      -p 5173:5173
-      -e VITE_API_URL=http://167.86.75.57:3001
-      --restart unless-stopped
-      $FRONTEND_IMAGE_NAME:$DOCKER_IMAGE_TAG
-      
-    # Clean up sensitive files
-    - rm backend/.env
-      
-  tags:
-    - shell  # Make sure this runner has shell executor
+      docker run -d \
+        --name scio-website-staging \
+        --restart unless-stopped \
+        -p 127.0.0.1:3002:3001 \
+        -e NODE_ENV=staging \
+        -e PORT=3001 \
+        -e MAIL_HOST='$STAGING_MAIL_HOST' \
+        -e MAIL_PORT='$STAGING_MAIL_PORT' \
+        -e MAIL_SECURE='$STAGING_MAIL_SECURE' \
+        -e MAIL_USER='$STAGING_MAIL_USER' \
+        -e MAIL_PASSWORD='$STAGING_MAIL_PASSWORD' \
+        -e MAIL_FROM='$STAGING_MAIL_FROM' \
+        -e MAIL_TO='$STAGING_MAIL_TO' \
+        -e COMPANY_NAME='Corporación Scio - Staging' \
+        -e SEND_CONFIRMATION='true' \
+        $IMAGE_NAME:$IMAGE_TAG
+
+    # Verify staging deployment
+    - sleep 5
+    - curl -f http://localhost:3002/api/health
+
+  environment:
+    name: staging
+    url: http://your-gitlab-server:3002
+  only:
+    - develop  # Deploy staging from develop branch
+  needs:
+    - build_production
+  when: manual  # Manual deployment for now

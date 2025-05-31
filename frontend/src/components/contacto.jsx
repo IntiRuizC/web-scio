@@ -20,7 +20,7 @@ const ContactSection = () => {
         error: null,
     });
 
-    const conContactRef = useRef(null); // Referencia para animar .con-contact
+    const conContactRef = useRef(null);
 
     useEffect(() => {
         ScrollTrigger.create({
@@ -29,7 +29,7 @@ const ContactSection = () => {
             end: "bottom+=200",
             toggleClass:
                 { targets: [".navbar", ".ulvert", ".logoblanco", ".logocolor",
-                    ".nav-conta", "#menu-cont", "#menu-toggle"], className: "in-contacto" },
+                        ".nav-conta", "#menu-cont", "#menu-toggle"], className: "in-contacto" },
         });
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
@@ -46,7 +46,6 @@ const ContactSection = () => {
             }
         })
 
-
         tl.fromTo(
             element,
             { x: "100%", opacity: 0, },
@@ -56,10 +55,10 @@ const ContactSection = () => {
                 ease: "power2.inOut"
             },
         )
-        .fromTo("body",
-            {backgroundColor: "#d03e16"},
-            {backgroundColor: "#036e7c"}
-        );;
+            .fromTo("body",
+                {backgroundColor: "#d03e16"},
+                {backgroundColor: "#036e7c"}
+            );
     }, []);
 
     const handleSubmit = async (e) => {
@@ -67,10 +66,8 @@ const ContactSection = () => {
         setFormStatus({ submitting: true, success: null, error: null });
 
         try {
-            // Get API URL from environment variables or use default
-            const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-
-            const response = await fetch(`${apiBaseUrl}/api/contact`, {
+            // Use relative URL - no need for environment variables
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -81,7 +78,6 @@ const ContactSection = () => {
             const result = await response.json();
 
             if (response.ok) {
-                // Reset form on success
                 setFormData({
                     name: "",
                     email: "",
@@ -95,7 +91,6 @@ const ContactSection = () => {
                     error: null
                 });
 
-                // Clear success message after 5 seconds
                 setTimeout(() => {
                     setFormStatus(prev => ({ ...prev, success: null }));
                 }, 5000);
@@ -150,7 +145,6 @@ const ContactSection = () => {
                         <h3>CONTÁCTANOS</h3>
                     </div>
 
-                    {/* Form status messages */}
                     {formStatus.success && (
                         <div className="form-message success">
                             {formStatus.success}
