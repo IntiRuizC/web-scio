@@ -4,7 +4,7 @@ FROM node:22.4.0-alpine AS builder
 # Build frontend
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
-RUN npm ci --only=production
+RUN npm ci  # Install ALL dependencies (including dev deps like vite)
 COPY frontend/ ./
 RUN npm run build
 

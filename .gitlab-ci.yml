@@ -28,25 +28,21 @@ build_production:
   only:
     - main
 
-# Deploy to production server (remote)
+# Deploy to production server (using runner's SSH key on Ubuntu host)
 deploy_production:
   stage: deploy
-  image: alpine:latest
+  # Remove image - use shell executor directly on Ubuntu host
   before_script:
-    # Setup SSH
-    - apk add --no-cache openssh-client
-    - eval $(ssh-agent -s)
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    # Ensure ssh is available (should already be on Ubuntu)
+    - which ssh || (echo "SSH not found" && exit 1)
+    - which scp || (echo "SCP not found" && exit 1)
   script:
-    # Transfer Docker image to production server
-    - scp scio-website-image.tar.gz $DEPLOY_USER@$DEPLOY_HOST:/tmp/
+    # Transfer Docker image to production server using runner's SSH key
+    - scp -i ~/.ssh/production_deploy -o StrictHostKeyChecking=no scio-website-image.tar.gz $DEPLOY_USER@$DEPLOY_HOST:/tmp/
 
     # Deploy on production server via SSH
     - |
-      ssh $DEPLOY_USER@$DEPLOY_HOST "
+      ssh -i ~/.ssh/production_deploy -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "
         # Load new Docker image
         cd /tmp &&
         gunzip -c scio-website-image.tar.gz | docker load &&
