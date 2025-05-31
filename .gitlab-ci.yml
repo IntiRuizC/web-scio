@@ -38,11 +38,11 @@ deploy_production:
     - which scp || (echo "SCP not found" && exit 1)
   script:
     # Transfer Docker image to production server using runner's SSH key
-    - scp -i ~/.ssh/production_deploy -o StrictHostKeyChecking=no scio-website-image.tar.gz $DEPLOY_USER@$DEPLOY_HOST:/tmp/
+    - scp -i ~/.ssh/gitlab_deploy -o StrictHostKeyChecking=no scio-website-image.tar.gz $DEPLOY_USER@$DEPLOY_HOST:/tmp/
 
     # Deploy on production server via SSH
     - |
-      ssh -i ~/.ssh/production_deploy -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "
+      ssh -i ~/.ssh/gitlab_deploy -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "
         # Load new Docker image
         cd /tmp &&
         gunzip -c scio-website-image.tar.gz | docker load &&
