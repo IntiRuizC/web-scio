@@ -10,10 +10,28 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          gsap: ['gsap']
+        }
+      }
+    }
+  },
   server: {
     host: '0.0.0.0',
     port: 5173,
     strictPort: true,
-    allowedHosts: ['sciocorp.org', 'www.sciocorp.org', 'localhost', '167.86.75.57']
-  },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      }
+    }
+  }
 })
